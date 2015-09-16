@@ -5,6 +5,7 @@
 *.css
 *.map
 
+css
 node_modules
 
 *.log
