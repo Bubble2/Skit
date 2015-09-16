@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui badge scss
+  description : 提示签样式，默认包括 主要、次要、通知、未处理
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.badge {
+	display: inline-block;
+	margin:0 5px;
+	position: relative;
+	min-width: 10px;
+	padding: 2px 4px;
+	font-size: 1.2px;
+	font-weight: 700;
+	color: #fff;
+	line-height: 1;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #999;
+	border-radius: 5px;
+
+	.arr--left{
+		position: absolute;
+		left:-4px;
+		top:4px;
+		border-width:3px 4px 3px 0;
+		border-style:dashed solid dashed dashed;
+	}
+	.arr--bottom-left{
+		position: absolute;
+		left:5px;
+		bottom:-3px;
+		border-width:4px 3px 0 3px;
+		border-style:solid dashed dashed dashed;
+	}
+}
+.badge--corner{
+	top:-4px;
+	right:-4px;
+}
+.badge--squrt{
+	border-radius:0;
+}
+.badge--primary{
+	background-color: nth($primaryBgColor,1);
+
+	.arr--left{
+		border-color:transparent nth($primaryBgColor,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($primaryBgColor,1) transparent transparent transparent;
+	}
+}
+.badge--secondary{
+	background-color: nth($secondaryBgColor,1);
+
+	.arr--left{
+		border-color:transparent nth($secondaryBgColor,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($secondaryBgColor,1) transparent transparent transparent;
+	}
+}
+.badge--warn{
+	background-color: nth($warningBgColor,1);
+
+	.arr--left{
+		border-color:transparent nth($warningBgColor,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($warningBgColor,1) transparent transparent transparent;
+	}
+}
+.badge--notice{
+	background-color: nth($noticeBgColor,1);
+
+	.arr--left{
+		border-color:transparent nth($noticeBgColor,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($noticeBgColor,1) transparent transparent transparent;
+	}
+}
+.badge--gray{
+	background-color: nth($grayLight,1);
+
+	.arr--left{
+		border-color:transparent nth($grayLight,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($grayLight,1) transparent transparent transparent;
+	}
+}
+.badge--disable{
+	color: #666;
+	background-color: #ccc;
+
+	.arr--left{
+		border-color:transparent #ccc transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:#ccc transparent transparent transparent;
+	}
+}
+.badge--untreated{
+	background-color: nth($untreatedBgColor,1);
+
+	.arr--left{
+		border-color:transparent nth($untreatedBgColor,1) transparent transparent;
+	}
+	.arr--bottom-left{
+		border-color:nth($untreatedBgColor,1) transparent transparent transparent;
+	}
+}

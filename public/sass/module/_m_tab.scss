@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module tab scss
+  description : tab style
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.m-tab{
+	border-bottom:2px solid $blue;
+	@extend %fn-clr;
+
+	li{
+		float:left;
+		height: 32px;
+		border-left:1px solid #eee;
+		text-align: center;
+		font:normal 14px/32px $baseFontFamily;
+	}
+	a{
+		display: block;
+		padding:0 15px;
+		height: 32px;
+		background-color: $gray;
+	}
+	a:link,a:visited{
+		color:#fff;
+		text-decoration: none;
+	}
+	a:hover{
+		color:#fff;
+		text-decoration: none;
+		background-color: darken($gray,5%);
+	}
+	.curr a,.curr a:link,.curr a:visited,.curr a:hover{
+		color:#fff;
+		background-color:$blue;
+	}
+	li:first-child{
+		border-left:none;
+	}
+}

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui progress scss
+  description : 刻度条类样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & atom
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.ui-slider{
+	display:-webkit-flex;
+	display:-ms-flex;
+	display:flex;
+	position: relative;
+	background-color: nth($gray,1);
+
+	.slider-segment{
+		position: relative;
+		// -webkit-flex:1;
+		// -ms-flex:1;
+		// flex:1;
+	}
+}
+.ui-slider-horizontal{
+	height: 12px;
+	width: auto;
+	font-size:0;
+	line-height: 0;
+	border-radius:6px;
+	-webkit-justify-content:space-between;
+	-ms-justify-content:space-between;
+	justify-content:space-between;
+
+	.slider-segment{
+		height: 12px;
+		width: 12px;
+		border-radius:6px;
+		background-color: nth($grayDark,1);
+
+		&:hover{
+			cursor:pointer;
+			background-color: darken(nth($grayDark,1),6%);
+		}
+		&.slided{
+			background-color: darken(nth($infoBgColor,1),10%);
+		}
+		&.slided:hover{
+			background-color: darken(nth($infoBgColor,1),16%);
+		}
+	}
+	.slider-segment:first-child{
+		border-left:0;
+	}
+	.slider-progress-selected{
+		position: absolute;
+		left:0;
+		top:0;
+		height:100%;
+		border-radius:6px;
+		background-color: nth($infoBgColor,1);
+	}
+	.slider-block{
+		position: absolute;
+		top:-2px;
+		margin-left: -6px;
+		width: 16px;
+		height: 16px;
+		font-size: 0;
+		line-height: 0;
+		background-color: darken(nth($infoBgColor,1),10%);
+		border-radius:50%;
+
+		&:hover{
+			background-color: darken(nth($infoBgColor,1),16%);
+		}
+	}
+}

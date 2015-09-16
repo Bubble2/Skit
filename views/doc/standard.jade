@@ -1,0 +1,295 @@
+extends ../index
+block main
+	div.doc-header
+		h2 样式规范
+	div.doc-con
+		div.doc-param
+			h3 SASS 变量配置
+			p
+				code.nohighlight.code-inline SKit
+				|是依赖全局变量集的，所有全局变量集都位于
+				code.nohighlight.code-inline core/_variables
+				|文件。这里进行了一些全局的字号、尺寸定义。推荐初次部署项目的时候配置这些变量。
+			p
+				|你也可以以这个文件为模板，创造多个变量不同的变量集，以适用可能不同的环境。
+			p
+				|字体图标的配置信息位于
+				code.nohighlight.code-inline font_icons/_variables
+				|文件。除非改变或增删图标，否则不需要更改。
+		div.doc-param
+			h3 模块化引用
+			p
+				|模块化是 SASS 框架的一大优势，
+				code.nohighlight.code-inline SKit
+				|在模块化的基础上，又尽可能地简化依赖关系，这样能使得 kit 可以快速上手，降低学习成本并利于扩展。
+				code.nohighlight.code-inline SKit
+				|不是
+				code.nohighlight.code-inline Bootstrap
+				|这样的全功能框架，它的目标是成为可以适应各种需求，可以随意改造的半成品。
+			p
+				|在
+				code.nohighlight.code-inline SKit
+				|中，所有其他文件都依赖
+				code.nohighlight.code-inline _mixin.scss
+				code.nohighlight.code-inline _variables.scss
+				code.nohighlight.code-inline _functions.scss
+				|文件。它们分别定义了kit的混入、全局变量、快速函数。
+				|但请务必注意，
+				code.nohighlight.code-inline SKit
+				strong 不推荐代码多层嵌套
+				|。例如，组件
+				code.nohighlight.code-inline a
+				|包含组件
+				code.nohighlight.code-inline b
+				|时，请勿在组件
+				code.nohighlight.code-inline a
+				|中直接引用组件
+				code.nohighlight.code-inline b
+				|而是应该在引用
+				code.nohighlight.code-inline a
+				|的
+				code.nohighlight.code-inline page
+				|文件中引用
+				code.nohighlight.code-inline b
+				|和
+				code.nohighlight.code-inline a
+				|。这么做是为了防止引用复杂化以及重复引用。要知道，重复引用会产生冗余的代码。
+
+			div.tip.tip-nor.tip-warn.at-mt-mid
+				div.tip-sign
+				div.tip-hd
+					|什么是
+					code.nohighlight.code-inline page
+					|文件？
+				div.tip-bd
+					p.at-mt-small 是指最终生成css文件并直接被页面引用的文件。
+
+
+			p.at-mt-mid
+				|“核心”的样式还包括：
+			ul
+				li 
+					code.nohighlight.code-inline core/reset
+					|是全局样式重置文件，这里是基于
+					a(href="http://necolas.github.io/normalize.css/",target="_blank") normalize 3.1
+					|进行了sass化修改。我们会在后面详细介绍。
+				li
+					code.nohighlight.code-inline core/common
+					|主要是用来补充重要的全局样式或修正
+					code.nohighlight.code-inline core/reset
+					|样式的。
+				li
+					code.nohighlight.code-inline core/grid
+					|和
+					code.nohighlight.code-inline core/grid_flex
+					|定义了全局的栅格布局。其栅格数量以及每个栅格的宽度会根据定义变化。我们会在后面详细介绍。
+				li
+					code.nohighlight.code-inline core/atom
+					|定义里全局原子样式，我们会在后面详细介绍。
+				li
+					code.nohighlight.code-inline ui/
+					|定义了全局视觉样式。详见“视觉”部分。
+		div.doc-param
+			h3 样式重置
+			p 基于
+				code.nohighlight.code-inline normalize 3.1
+				|该重置保证各个浏览器默认样式统一的同时也保留了一些可辨识性。并且照顾到了html5 定义的新标签，移动端适配以及丰富的注释。
+				code.nohighlight.code-inline SKit
+				|没有对原有重置进行太大修改，如果您需要修改，可根据注释变更。也可以把一些修正和补充写在
+				code.nohighlight.code-inline core/common
+				|里。
+			p.at-text-warn.at-mt-mid
+				|请注意，
+				code.nohighlight.code-inline SKit
+				strong 默认使用了
+					code.nohighlight.code-inline border-box
+					|盒子模型
+				|。这是因为skit大量使用了百分比宽度。
+
+		div.doc-param
+			h3 原子样式
+			p.at-mt-mid.at-mb-mid
+				code.nohighlight.code-inline SKit
+				|中的原子样式都使用了统一的前缀
+				code.nohighlight.code-inline at-
+				|，包括间距、颜色、字体、对齐等。
+			table.tb.tb-border.tb-align-left
+				colgroup
+					col(width="13%")
+					col(width="20%")
+					col(width="13%")
+					col(width="20%")
+					col(width="13%")
+					col(width="20%")
+				thead
+					tr
+						th Class
+						th 备注与效果
+						th Class
+						th 备注与效果
+						th Class
+						th 备注与效果
+				tbody
+					tr
+						td
+							code.nohighlight.code-inline .at-text-sn
+						td
+							span.at-text-sn 宋体
+						td
+							code.nohighlight.code-inline .at-text-sans
+						td
+							span.at-text-sans 有衬线字
+						td
+							code.nohighlight.code-inline .at-text-serif
+						td
+							span.at-text-serif 无衬线字
+					tr
+						td
+							code.nohighlight.code-inline .at-text-primary
+						td
+							span.at-text-primary 主要的
+						td
+							code.nohighlight.code-inline .at-text-info
+						td
+							span.at-text-info 信息
+						td
+							code.nohighlight.code-inline .at-text-notice
+						td
+							span.at-text-notice 通知
+					tr
+						td
+							code.nohighlight.code-inline .at-text-ques
+						td
+							span.at-text-ques 疑问
+						td
+							code.nohighlight.code-inline .at-text-succ
+						td
+							span.at-text-succ 成功
+						td
+							code.nohighlight.code-inline .at-text-warn
+						td
+							span.at-text-warn 警告
+					tr
+						td
+							code.nohighlight.code-inline .at-text-error
+						td
+							span.at-text-error 错误
+						td
+							code.nohighlight.code-inline .at-text-untreated
+						td
+							span.at-text-untreated 未处理
+						td
+							code.nohighlight.code-inline .at-text-disabled
+						td
+							span.at-text-disabled 不可用
+					tr
+						td
+							code.nohighlight.code-inline .at-link-muted
+						td
+							a(href="javascript:;").at-link-muted 灰度链接
+						td
+							code.nohighlight.code-inline .at-text-secondary
+						td
+							span.at-text-secondary 次要的文字
+						td
+							code.nohighlight.code-inline .at-text-default
+						td
+							span.at-text-default 默认字号的文字
+					tr
+						td
+							code.nohighlight.code-inline .at-text-xs
+						td
+							span.at-text-xs extreme small 字号
+						td
+							code.nohighlight.code-inline .at-text-sm
+						td
+							span.at-text-sm small 字号
+						td
+							code.nohighlight.code-inline .at-text-lg
+						td
+							span.at-text-lg large 字号
+					tr
+						td
+							code.nohighlight.code-inline .at-text-xl
+						td
+							span.at-text-xl extreme large 字号
+						td
+							code.nohighlight.code-inline .at-text-sm
+						td
+							span.at-text-xxl ex ex large 字号
+						td
+							code.nohighlight.code-inline .at-text-xxxl
+						td
+							span.at-text-xxxl ex ex ex large 字号
+					tr
+						td
+							code.nohighlight.code-inline .at-ellipsis
+							br
+							code.nohighlight.code-inline .at-text-truncate
+						td
+							span(title="文字溢出会显示省略号",style="display:block;width:120px;height:30px;").at-ellipsis 文字溢出会显示省略号
+						td
+							code.nohighlight.code-inline .at-text-break
+						td
+							div.at-mb-mid 文字断行
+							div.at-mb-mid.at-text-warn hyphens(自动添加连字符CSS4属性)尚未被支持
+							div(style="display:block;width:120px;").at-text-break css of internationalization
+						td
+							code.nohighlight.code-inline .at-text-nowrap
+						td
+							span.at-text-nowrap 文字禁止换行
+					tr
+						td
+							code.nohighlight.code-inline .at-text-center
+						td
+							span.at-text-center 居中对齐
+						td
+							code.nohighlight.code-inline .at-text-left
+						td
+							span.at-text-left 左对齐
+						td
+							code.nohighlight.code-inline .at-text-right
+						td
+							span.at-text-right 右对齐
+					tr
+						td
+							code.nohighlight.code-inline .at-text-vam
+						td
+							span.at-text-vam 垂直居中
+							span 对齐
+						td
+							code.nohighlight.code-inline .at-text-vat
+						td
+							span.at-text-vat 顶端
+							span(style="height:30px;line-height:30px;").at-dis-ib.at-background-info 对齐
+						td
+							code.nohighlight.code-inline .at-text-vab
+						td
+							span.at-text-vab 基线对齐
+					tr
+						td
+							code.nohighlight.code-inline .at-dis-ib
+						td
+							code.nohighlight.code-inline display:inline-block 
+						td
+							code.nohighlight.code-inline .at-dis-b
+						td
+							code.nohighlight.code-inline display:block
+						td
+							code.nohighlight.code-inline .at-dis-flex
+						td
+							|弹性盒子
+							code.nohighlight.code-inline display:flex
+					tr
+						td
+							code.nohighlight.code-inline .at-text-kaiti
+						td
+							span.at-text-kaiti 楷体文字 Kaiti Charactor
+						td
+							code.nohighlight.code-inline .fn-clearfix
+							code.nohighlight.code-inline .fn-clear
+						td 清除浮动
+						td 
+							code.nohighlight.code-inline .fn-fll
+							code.nohighlight.code-inline .fn-flr
+						td 左浮动和右浮动

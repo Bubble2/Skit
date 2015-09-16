@@ -1,0 +1,195 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui pager normal scss
+  description : 翻页类样式基础样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & ui_icon
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.pager-amount{
+	padding:5px 10px;
+	background-color: #f5f5f5;
+	font-size: rem2px(1.4rem);
+	font-size: 1.4rem;
+
+	a{
+		display: inline-block;
+		height: rem2px(2rem);
+		height:2rem;
+		line-height: rem2px(2rem);
+		line-height: 2rem;
+		padding:0 6px;
+
+		&.curr:link,&.curr:visited,&.curr:hover{
+			color:$red;
+			font-weight: 800;
+		}
+	}
+	a:link,a:visited{
+		color:$linkColor;
+		text-decoration: none;
+	}
+	a:hover{
+		color:$red;
+		text-decoration: none;
+	}
+}
+.pager{
+	margin:10px 0;
+	min-width:450px;
+	@extend %fn-clr;
+	text-align: center;
+
+	.pager-ctrl,.pager-frm{
+		display: inline-block;
+		*display: inline;
+		*zoom:1;
+		white-space: nowrap;
+	}
+}
+.pager-ctrl{
+	word-spacing:-0.3em;
+	*word-spacing:normal;
+	*letter-spacing:-0.2em;
+
+	a,.pager-ctrl-curr{
+		display: inline-block;
+		border-radius:2px;
+		height: rem2px(2.4rem);
+		width: rem2px(2.8rem);
+		height: 2.4rem;
+		width: 2.8rem;
+		line-height: rem2px(2.2rem);
+		line-height: 2.2rem;
+		word-spacing:normal;
+		*letter-spacing: normal;
+		text-align: center;
+		vertical-align: middle;
+	}
+	*+a,*+.pager-ctrl-curr{
+		margin-left:5px;
+	}
+	.pager-ctrl-curr{
+		cursor:default;
+	}
+	a{
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : (nth($defaultColor,1),darken(nth($defaultColor,1),4%)),
+		  $ie : 'filter'
+		);
+		background-color: nth($defaultColor,1);
+		color:#666;
+		-webkit-text-shadow: 0 1px 0 #fff;
+		text-shadow: 0 1px 0 #fff;
+		border:1px solid #ccc;
+		border-radius:2px;
+	}
+	a:link,a:visited{
+		color:#666;
+		text-decoration: none;
+	}
+	a:hover{
+		border-color:darken(nth($defaultColor,1),16%);
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : (darken(nth($defaultColor,1),4%),darken(nth($defaultColor,1),4%)),
+		  $ie : 'filter'
+		);
+		background-color: darken(nth($defaultColor,1),4%);
+		color:#666;
+		text-decoration: none;
+	}
+	.pager-ctrl-curr,.pager-ctrl-curr:link,.pager-ctrl-curr:visited,.pager-ctrl-curr:hover{
+		border-color:darken($blue,4%);
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : (darken($blue,4%),darken($blue,4%)),
+		  $ie : 'filter'
+		);
+		background-color: darken($blue,4%);
+		color:#fff;
+	}
+	.pager-ctrl-pre,.pager-ctrl-nxt{
+		font-family: $fontSun;
+	}
+	.pager-ctrl-rel{
+		margin-left:3px;
+		color: $grayDark;
+	}
+}
+.pager-frm{
+	margin-left: 10px;
+
+	span{
+		display: inline-block;
+		margin: 0 3px;
+		height: rem2px(2.4rem);
+		height: 2.4rem;
+		line-height: rem2px(2.4rem);
+		line-height: 2.4rem;
+		vertical-align: middle;
+	}
+	.pager-frm-val{
+		height:2.4rem;
+		width: 30px;
+		border-radius:1px;
+		vertical-align: middle;
+		text-align: center;
+	}
+	.pager-frm-btn{
+		padding:0 8px;
+		height: rem2px(2.4rem);
+		height: 2.4rem;
+		line-height: rem2px(2.4rem);
+		line-height: 2.4rem;
+		font-size: rem2px(1.2rem);
+		font-size: 1.2rem;
+		vertical-align: middle;
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : (nth($defaultColor,1),darken(nth($defaultColor,1),4%)),
+		  $ie : 'filter'
+		);
+		background-color: nth($defaultColor,1);
+		color:#666;
+		-webkit-text-shadow: 0 1px 0 #fff;
+		text-shadow: 0 1px 0 #fff;
+		border:1px solid #ccc;
+		border-radius:2px;
+	}
+	.pager-frm-btn:hover{
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : (darken(nth($defaultColor,1),4%),darken(nth($defaultColor,1),4%)),
+		  $ie : 'filter'
+		);
+		background-color: darken(nth($defaultColor,1),4%);
+	}
+}
+.pager-range{
+	margin:10px 0;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+
+	a{
+		margin: 0 3px;
+	}
+	a:link,a:visited{
+		color:#666;
+		text-decoration: none;
+	}
+	a:hover{
+		text-decoration: underline;
+	}
+	.curr,.curr:link,.curr:visited,.curr:hover{
+		font-weight: 800;
+		color: #666;
+		text-decoration: none;
+		cursor: default;
+	}
+}

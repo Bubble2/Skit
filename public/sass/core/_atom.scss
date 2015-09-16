@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: atom style
+  description : 原子类样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+
+// 文本类
+
+.at-text-sn{
+    font-family: $fontSun;
+}
+
+.at-text-sans{
+    font-family: $fontSans;
+}
+
+.at-text-serif{
+    font-family: $fontSerif;
+}
+
+.at-text-kaiti{
+    font-family: $fontKaiti;
+}
+
+.at-text-primary {
+    color: $primaryColor;
+}
+
+.at-text-info {
+    color: $blue;
+}
+
+.at-text-notice {
+    color: $blue;
+}
+
+.at-text-ques {
+    color: $blue;
+}
+
+.at-text-succ {
+    color: $successColor;
+}
+
+.at-text-warn {
+    color: $warningColor;
+}
+
+.at-text-error {
+    color: $errorColor;
+}
+
+.at-text-untreated{
+    color: $untreatedColor;
+}
+
+.at-text-disabled {
+    color: $disabledColor;
+}
+
+.at-text-gray{
+    color: $gray;
+}
+
+.at-text-gray-dark{
+    color:$grayDark;
+}
+
+.at-link-muted {
+    color: #666
+}
+
+.at-link-muted a {
+    color: #666
+}
+
+.at-link-muted:hover,.at-link-muted a:hover {
+    color: #555
+}
+
+.at-text-secondary{
+  color:#999;
+}
+
+.at-text-secondary a,.at-text-secondary:link,.at-text-secondary:visited,.at-text-secondary:hover{
+  color:#999;
+}
+
+.at-text-default {
+    font-size: $baseFontSize;
+}
+
+.at-text-xs {
+    font-size:$xsFontSize;
+}
+.at-text-sm {
+    font-size: $smFontSize;
+}
+
+.at-text-lg {
+    font-size: $lgFontSize;
+}
+
+.at-text-xl {
+    font-size: $xlFontSize;
+}
+
+.at-text-xxl {
+    font-size: $xxlFontSize;
+}
+
+.at-text-xxxl {
+    font-size: $xxxlFontSize;
+}
+
+.at-ellipsis,.at-text-truncate {
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.at-text-break,.at-text-break th,.at-text-break td {
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+.at-text-nowrap{
+  @include fn-text-overflow;
+}
+.at-text-center{
+  text-align: center;
+}
+.at-text-left{
+  text-align:left;
+}
+.at-text-right{
+  text-align:right;
+}
+.at-text-vam{
+  vertical-align: middle;
+}
+.at-text-vat{
+  vertical-align: top;
+}
+.at-text-vab{
+  vertical-align: baseline;
+}
+
+// 块级格式
+.at-dis-b{
+  display: block;
+}
+.at-dis-ib{
+  display:inline-block;
+}
+.at-dis-flex{
+  display:-webkit-flex;
+  display:flex;
+}
+
+//  margin 间隙
+@each $size,$space in $spaceBase {
+  .at-mg-#{$size}{ 
+	@include atom(margin,$space);
+  }
+    
+}
+@each $size,$space in $spaceBase {
+  .at-mt-#{$size}{ 
+  @include atom(margin-top,$space);
+  }
+  .at-ml-#{$size}{ 
+  @include atom(margin-left,$space);
+  }
+  .at-mr-#{$size}{ 
+  @include atom(margin-right,$space);
+  }
+  .at-mb-#{$size}{ 
+  @include atom(margin-bottom,$space);
+  }
+}
+
+//  padding 间隙
+@each $size,$space in $spaceBase {
+  .at-pd-#{$size}{ 
+	@include atom(padding,$space);
+  }
+    
+}
+
+// 背景颜色
+@each $color,$value in $bgColorMap{
+  .at-background-#{$color}{
+    background-color: $value;
+  }
+}
+

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui pager normal scss
+  description : 工具栏样式基础样式，可组合按钮
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & ui_button
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.m-tools{
+	position: relative;
+
+	*+.m-btn-group{
+		margin-left:10px;
+	}
+}
+.m-btn-group{
+	display: inline-block;
+	vertical-align:middle;
+	word-spacing: -0.3em;
+	*word-spacing: normal;
+	*letter-spacing: -0.33em;
+	white-space: nowrap;
+	&>.btn:first-child{
+		border-radius:$smallRadius 0 0 $smallRadius;
+		border-left:none;
+	}
+	&>.btn:last-child{
+		border-radius:0 $smallRadius $smallRadius 0;
+	}
+	&>.btn{
+		border-left:1px solid #eee;
+		border-left:1px solid rgba(255,255,255,.2);
+		border-radius:0;
+		word-spacing: normal;
+		letter-spacing: normal;
+		vertical-align:middle;
+	}
+	&>.m-btn-group-info{
+		display: inline-block;
+		padding:5px 10px;
+		vertical-align: middle;
+		font-size: 12px;
+		color:$grayDark;
+	}
+		
+}

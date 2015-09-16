@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv="X-UA-Compatible",content="IE=edge")
+		meta(name="renderer",content="webkit")
+		title= "SKit "+title
+		meta(name="viewport",content="width=device-width, initial-scale=1")
+		meta(http-equiv="Cache-Control",content="no-siteapp")
+		meta(rel="shortcut icon",href="/favicon.ico")
+		meta(rel="apple-touch-icon",href="/apple-touch-icon.png")
+		block head
+		link(rel='stylesheet', href='/css/uikit.css')
+		link(rel='stylesheet', href='/css/monokai_sublime.css')
+	body
+		include inc/_top
+		div.inc-container
+			block content
+		script(type="text/javascript",src="/scripts/lib/hlight.js")
+		script(type="text/javascript",src="/scripts/module/init_hlight.js")

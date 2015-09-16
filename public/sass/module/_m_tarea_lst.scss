@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: textarea list scss
+  description : ip地址列表，点在下方输入并且添加到文本域区
+  ----------------------------------------------------
+  dependencies : settings
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.ip-lst{
+
+	border:1px solid #b0aeac;
+	// width: 398px;
+
+	.ip-lst-bd{
+		padding:5px 0;
+		height:102px;
+		overflow: auto;
+
+		li{
+			position: relative;
+			background-color: #fff;
+			padding:5px 15px;
+			width: 170px;
+	
+			.ip-remove{
+				position: absolute;
+				right:18px;
+				top:10px;
+			}
+		}
+		input{
+			border:none;
+			padding:5px;
+			height:14px;
+			width: 160px;
+			line-height: 14px;
+			background-color: #f4fafe;
+		}
+	}
+	.ip-lst-ft{
+		overflow: hidden;
+		*zoom:1;
+		padding:10px 5px;
+		background-color: #daf2ff;
+
+		.ip-lst-ope{
+			float: left;
+			margin-left: 10px;
+
+			.txt{
+				border:1px solid #999;
+				padding:2px;
+				height:24px;
+				*height:20px;
+			}
+			.txt-ip-ip{
+				width: 100px;
+				vertical-align: middle;
+			}
+			.txt-ip-port{
+				width: 40px;
+				vertical-align: middle;
+			}
+			.btn-add{
+				margin-left: 2px;
+				padding:0 5px;
+				height:24px;
+				*height:22px;
+				color:#666;
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 12px;
+				vertical-align: middle;
+				background-color: transparent;
+			}
+			.btn-add:hover .icon-add-gray{
+				background-position: -80px -32px;
+			}
+
+			label{
+				display: inline-block;
+				height:24px;
+				line-height: 24px;
+				color:#666;
+
+				.icon{
+					margin-right: 3px;
+				}
+			}
+		}
+		.ip-lst-field{
+			display: inline-block;
+			*display: inline;
+			*zoom:1;
+			height:24px;
+		}
+		p{
+			float: right;
+			height: 24px;
+			line-height: 24px;
+			color:#666;
+		}
+	}
+}

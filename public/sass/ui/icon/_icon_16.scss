@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: icon scss 16 * 16
+  description : 尺寸为16*16的图标
+  ----------------------------------------------------
+  dependencies : settings
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.icon,.icon-32{
+  display: inline-block;
+  background-image: url(img/icon_16.png);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.icon{
+  width: 16px;
+  height: 16px;
+}
+.icon-warn{
+	background-position: 0 0;
+}
+.icon-succ{
+	background-position: -16px 0;
+}
+.icon-info{
+	background-position: -32px 0;
+}
+.icon-question{
+	background-position: -48px 0;
+}
+.icon-abort{
+	background-position: -64px 0;
+}
+.icon-err{
+	background-position: -80px 0;
+}
+.icon-arr-up{
+	background-position: -16px -48px;
+}
+.icon-arr-down{
+	background-position: 0 -48px;
+}

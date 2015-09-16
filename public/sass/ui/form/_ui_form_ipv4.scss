@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: form scss
+  description : 表单增强样式 ip地址输入组件
+  ----------------------------------------------------
+  dependencies : reset mixin ui_form
+  provided to:any pages
+  ----------------------------------------------------
+*/
+.frm-ipv4{
+	display: inline-block;
+
+	.frm-ipv4-atom,.frm-ctrl-rel{
+		float: left;
+		height: 100%;
+	}
+	.frm-ipv4-atom{
+		border:none;
+		padding:0 3px;
+		padding-top:4px\9;
+		width: 22%;
+		text-align:right;
+	}
+}

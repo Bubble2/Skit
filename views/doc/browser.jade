@@ -1,0 +1,159 @@
+extends ../index
+block main
+	div.doc-header
+		h2 浏览器兼容性
+	div.doc-con
+		p SUI提倡尽可能地使用CSS表现样式和动画，因此，将会大量使用CSS3。在低版本的IE中，SUI依然会尽可能地保持功能兼容。
+
+		div.w-context
+			h3 兼容性支持分级
+			ul
+				li
+					strong A级：
+					|最高支持级别，视觉、交互，数据被完全还原，实现全部前端功能。
+				li
+					strong B级：
+					|有限支持，显示基本排版、样式，不考虑响应式设计及其他设计细节。
+				li
+					strong C级：
+					|基本支持，会出现排版、样式等方面的问题。
+				li
+					strong X级：
+					|未知的级别，在某些方面支持度良好，在另一些方面支持度很差。
+				li
+					strong Non级：
+					|不再支持。
+			p.w-content
+				p
+					|SKit在保证代码不冗余、渲染效率较高的同时尽可能地支持所有主流浏览器，但也会对样式效果做降级处理，例如样式的圆角、渐变、阴影，都尽可能地使用CSS3属性替代图片。
+					|尽管SKit提供了低版本IE的字体图标解决方案，但
+					strong 强烈建议
+					|不这么做。
+				p
+					|一些壳浏览器将不再单独列出，对于这些浏览器的支持度，与其使用的内核及内核版本有关。
+
+
+
+		table.tb.tb-border.w-context
+			colgroup
+				col(width="15%")
+				col(width="15%")
+				col(width="15%")
+				col(width="15%")
+				col(width="15%")
+			thead
+				tr
+					th OS/Browser
+					th Version
+					th Windows
+					th iOS(7+)
+					th OS X(10.9+)
+					th Andriod(4.1+)
+					th Windows Phone
+			tbody
+				tr
+					td Chrome
+					td Lastest 2
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td(rowspan="4") Internet Explorer
+					td 10+
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-succ: span.at-text-succ A-
+				tr
+					td 9
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td 8
+					td.at-background-warn: span.at-text-warn B
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td 7-
+					td.at-background-error: span.at-text-error C-
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Opera(Blink)
+					td Lastest 2
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-info: span.at-text-info X
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Opera Mini
+					td Lastest 1
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-info: span.at-text-info X
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Safari
+					td Lastest 2
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Firefox
+					td Lastest 2
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-info: span.at-text-info X
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Firefox Mobile
+					td Lastest 2
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-info: span.at-text-info A
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td Andriod Browser
+					td Lastest 1
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-info: span.at-text-info X
+					td.at-background-disabled: span.at-text-disabled N/A
+				tr
+					td UC Browser
+					td Lastest 2
+					td.at-text-info: span.at-text-info X
+					td.at-background-succ: span.at-text-succ A
+					td.at-background-disabled: span.at-text-disabled N/A
+					td.at-background-info: span.at-text-info X
+					td.at-background-disabled: span.at-text-disabled N/A
+		div.w-context
+			h3 说明：
+			ul
+				li
+					|最近N个版本是最近发布的正式版本。
+				li
+					code IE9-
+					|不支持 CSS3 动画，而SKit提倡使用CSS3动画替代JS动画。
+				li
+					|一些插件采用了CSS3选择器，另一些插件采用了flex布局，这些可能都不能被IE9-以及Safari、Firefox的早期版本支持。
+				li
+					|SKit没有测试基于Presto的Opera浏览器的支持，此外基于KHTML、Gnome的浏览器也没有测试。
+

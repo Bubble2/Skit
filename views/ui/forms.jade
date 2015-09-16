@@ -1,0 +1,293 @@
+extends ../index
+block main
+	div.doc-header
+		h2= title
+	div.doc-con
+		div.doc-param
+			h3 表单元素介绍
+			p.
+				<code class="nohighlight code-inline">ui/ui_form</code>定义了常见的表单视觉样式，除按钮已经在 <code class="nohighlight code-inline">ui/ui_button</code>在定义外，包括单选、复选、文本框、文本域等常见的样式。更多其他样式，则放置在目录下<code class="nohighlight code-inline">ui/form/</code>，默认包括文件上传、日期选择、IP输入、开关以及部分表单的增强样式。您可以根据情况继续增加样式。
+			p.
+				表单的排版是另一个方面，SKit将表单相关的排版样式都放在了<code class="nohighlight code-inline">layout/ly_form</code>内。
+			h5 表单简单示例
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<div class="frm width-l">
+						<dl class="frm-item">
+							<dt><em>*</em>姓名:</dt>
+							<dd>
+								<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl" placeholder="如：张三">
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt><em>*</em>电子邮箱:</dt>
+							<dd>
+								<input type="email" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl" placeholder="example@example.com">
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt>电话号码:</dt>
+							<dd>
+								<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--xs" placeholder="区号">
+								<span class="frm-ctrl-rel">-</span>
+								<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--normal" placeholder="电话">
+								<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--sm" placeholder="分机">
+								<div class="frm-tail">
+									<p class="at-text-gray-dark">仅限中国大陆的号码</p>
+								</div>
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt>地址:</dt>
+							<dd>
+								<select class="frm-ctrl frm-ctrl--middle frm-ctrl--sm">
+									<option>请选择</option>
+									<option>北京市</option>
+									<option>上海市</option>
+									<option>南京市</option>
+									<option>广州市</option>
+									<option>深圳市</option>
+									<option>乌鲁木齐市</option>
+									<option>其他</option>
+								</select>
+								<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--xxl" placeholder="江北新区南京高新技术开发区星火路9号软件大厦A座">
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt>手机:</dt>
+							<dd>
+								<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl">
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt><em>*</em>密码:</dt>
+							<dd>
+								<input type="password" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl">
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt><em>*</em>性别:</dt>
+							<dd>
+								<div class="frm-ctrl-group">
+									<span class="chkbox">
+										<input type="radio" name="demoSex" id="demoSexMale">
+										<label for="demoSexMale">男</label>
+									</span>
+									<span class="chkbox">
+										<input type="radio" name="demoSex" id="demoSexFemale">
+										<label for="demoSexFemale">女</label>
+									</span>
+								</div>
+							</dd>
+						</dl>
+						<dl class="frm-item">
+							<dt>爱好:</dt>
+							<dd>
+								<div class="frm-ctrl-group">
+									<span class="chkbox">
+										<input type="checkbox" name="demoFav" id="demoFavFootball">
+										<label for="demoFavFootball">足球</label>
+									</span>
+									<span class="chkbox">
+										<input type="checkbox" name="demoFav" id="demoFavBasketball">
+										<label for="demoFavBasketball">篮球</label>
+									</span>
+									<span class="chkbox">
+										<input type="checkbox" name="demoFav" id="demoFavTableTennis">
+										<label for="demoFavTableTennis">乒乓球</label>
+									</span>
+									<span class="chkbox">
+										<input type="checkbox" name="demoFav" id="demoFavSwiming">
+										<label for="demoFavSwiming">游泳</label>
+									</span>
+								</div>
+							</dd>
+						</dl>
+						<dl class="frm-item frm-item--align-top">
+							<dt>备注:</dt>
+							<dd>
+								<textarea class="frm-ctrl tarea tarea-row--5"></textarea>
+							</dd>
+						</dl>
+						<div class="frm-ope">
+							<button type="button" class="btn btn-big btn-primary">确定</button>
+							<button type="button" class="btn btn-big btn-default">取消</button>
+						</div>
+					</div>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<div class="frm width-l">'}
+							#{'<dl class="frm-item"><!-- 或使用样式 frm-item-hd -->'}
+								#{'<dt><em>*</em>姓名:</dt>'}
+								#{'<dd><!-- 或使用样式 frm-item-bd -->'}
+									#{'<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl" placeholder="如：张三">'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt><em>*</em>电子邮箱:</dt>'}
+								#{'<dd>'}
+									#{'<input type="email" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl" placeholder="example@example.com">'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt>电话号码:</dt>'}
+								#{'<dd>'}
+									#{'<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--xs" placeholder="区号">'}
+									#{'<span class="frm-ctrl-rel">-</span>'}
+									#{'<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--m" placeholder="电话">'}
+									#{'<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--sm" placeholder="分机">'}
+									#{'<div class="frm-tail">'}
+										#{'<p class="at-text-gray-dark">仅限中国大陆的号码</p>'}
+									#{'</div>'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class=\"frm-item\">'}
+								#{'<dt>地址:<\/dt>'}
+								#{'<dd>'}
+									#{'<select class=\"frm-ctrl frm-ctrl--middle frm-ctrl--sm\">'}
+										#{'<option>请选择<\/option>'}
+									#{'<\/select>'}
+									#{'<input type=\"tel\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--xxl\" placeholder=\"江北新区南京高新技术开发区星火路9号软件大厦A座\">'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt>手机:</dt>'}
+								#{'<dd>'}
+									#{'<input type="tel" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl">'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt><em>*</em>密码</dt>'}
+								#{'<dd>'}
+									#{'<input type="password" class="frm-ctrl frm-ctrl--middle frm-ctrl--xl">'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt><em>*</em>性别</dt>'}
+								#{'<dd>'}
+									#{'<div class="frm-ctrl-group">'}
+										#{'<span class="chkbox">'}
+											#{'<input type="radio" name="demoSex" id="demoSexMale">'}
+											#{'<label for="demoSexMale">男</label>'}
+										#{'</span>'}
+										#{'<span class="chkbox">'}
+											#{'<input type="radio" name="demoSex" id="demoSexFemale">'}
+											#{'<label for="demoSexFemale">女</label>'}
+										#{'</span>'}
+									#{'</div>'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item">'}
+								#{'<dt>爱好</dt>'}
+								#{'<dd>'}
+									#{'<div class="frm-ctrl-group">'}
+										#{'<span class="chkbox">'}
+											#{'<input type="checkbox" name="demoFav" id="demoFavFootball">'}
+											#{'<label for="demoFavFootball">足球</label>'}
+										#{'</span>'}
+										#{'<span class="chkbox">'}
+											#{'<input type="checkbox" name="demoFav" id="demoFavBasketball">'}
+											#{'<label for="demoFavBasketball">篮球</label>'}
+										#{'</span>'}
+										#{'<span class="chkbox">'}
+											#{'<input type="checkbox" name="demoFav" id="demoFavTableTennis">'}
+											#{'<label for="demoFavTableTennis">乒乓球</label>'}
+										#{'</span>'}
+										#{'<span class="chkbox">'}
+											#{'<input type="checkbox" name="demoFav" id="demoFavSwiming">'}
+											#{'<label for="demoFavSwiming">游泳</label>'}
+										#{'</span>'}
+									#{'</div>'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<dl class="frm-item frm-item--align-top">'}
+								#{'<dt>备注:</dt>'}
+								#{'<dd>'}
+									#{'<textarea class="frm-ctrl tarea tarea-row--5"></textarea>'}
+								#{'</dd>'}
+							#{'</dl>'}
+							#{'<div class="frm-ope">'}
+								#{'<button type="button" class="btn btn-big btn-primary">确定</button>'}
+								#{'<button type="button" class="btn btn-big btn-default">取消</button>'}
+							#{'</div>'}
+						#{'</div>'}
+			p.at-mt-mid.
+				这个示例展示了主要的表单样式，以及表单的简单排版，默认已经应用了增强表单样式。
+		div.doc-param
+			h3 输入框样式介绍
+			p.
+				输入框的宽度和高度分别由一套选择器控制，因此输入框的尺寸变化组合是十分自由的。文本域也有类似的分类，它们还可以按照百分比宽度定宽。文本域默认宽度固定，但高度可调整，如果您需要它的尺寸完全固定，可以为其添加<code class="nohighlight code-inline">.tarea--static</code>。
+			h4 输入框尺寸样式
+			div.doc-example
+				div.at-mt-small.at-mb-small.width-xl.
+					<strong>small style</strong>
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--w" placeholder="wrap long">
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--xxs" placeholder="xxs">
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--xxl" placeholder="extra extra long">
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--xs" placeholder="xs">
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--xl" placeholder="extra long">
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--sm" placeholder="sm">
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--xl" placeholder="extra long">
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--sm" placeholder="small">
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--l" placeholder="long">
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--small frm-ctrl--normal" placeholder="normal">
+				div.at-mt-small.at-mb-small.width-xl.
+					<strong>middle style</strong>
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--l" placeholder="middle height">
+				div.at-mt-small.at-mb-small.width-xl.
+					<strong>large style</strong>
+				div.at-mt-small.at-mb-small.width-xl.
+					<input type="text" class="frm-ctrl frm-ctrl--large frm-ctrl--l" placeholder="large height">
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--w\" placeholder=\"wrap long\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--xxs\" placeholder=\"xxs\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--xxl\" placeholder=\"extra extra long\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--xs\" placeholder=\"xs\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--xl\" placeholder=\"extra long\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--sm\" placeholder=\"sm">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--xl\" placeholder=\"extra long\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--sm\" placeholder=\"small\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--l\" placeholder=\"long\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--small frm-ctrl--normal\" placeholder=\"normal\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l\" placeholder=\"middle height\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--large frm-ctrl--l\" placeholder=\"large height\">'}
+			h4 输入框颜色样式
+			p 这里的颜色样式可以用于默认样式或校验反馈样式。表单校验也存在单独的样式，会在后面提到。
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--succ" placeholder="成功 正确 匹配" value="成功 正确 匹配">
+				div.at-mt-small.at-mb-small.
+					<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--err" placeholder="错误 失败" value="错误 失败">
+				div.at-mt-small.at-mb-small.
+					<input type="text" class="frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--warn" placeholder="警告 存在问题" value="警告 存在问题">
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--succ\" placeholder=\"成功 正确\ 匹配" value=\"成功 正确 匹配\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--err\" placeholder=\"错误 失败\" value=\"错误 失败\">'}
+						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--warn\" placeholder=\"警告 存在问题\" value=\"警告 存在问题\">'}
+		div.doc-param
+			h3 表单复杂布局
+			p.
+				SKit考虑到了一些复杂布局的情况。
+			h4 表单一行多列布局
+			div.doc-example
+				
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+			h4 表单单字段多行布局
+			h4 表单垂直样式布局
+		div.doc-param
+			h3 表单带校验布局
+			h4 表单多校验信息布局

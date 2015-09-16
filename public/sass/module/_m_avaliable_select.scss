@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module avaliable select list scss
+  description : 左右互选组件
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & ui_button
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.m-avaliable-select{
+	padding-top:3px;
+	overflow:hidden;
+	*zoom:1;
+	
+	.ava-select-side{
+		float:left;
+	}
+	.ava-side-tit{
+		height: 24px;
+		line-height: 24px;
+		color:#999;
+	}
+	.frm-mutiple{
+		padding:5px;
+		height:140px;
+		line-height: 22px;
+
+		option{
+			padding:2px 5px;
+		}
+	}
+	.ava-toggle-wrap{
+		float:left;
+		position: relative;
+		margin-top: 24px;
+		width:50px;
+		height:116px;
+
+		.btn-ava-add,.btn-ava-remove{
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -13px;
+		}
+		.btn-ava-add{
+			margin-top: -20px;
+		}
+		.btn-ava-remove{
+			margin-top: 20px;
+		}
+	}
+}

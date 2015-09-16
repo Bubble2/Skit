@@ -1,0 +1,275 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui tips normal scss
+  description : 提示类样式基础样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & ui_icon
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.tip{
+	position: relative;
+	// border-radius:$smallRadius;
+
+	.tip-sign{
+		float:left;
+		font-weight: normal;
+		font-style: normal;
+		font-family: suifont;
+		speak:none;
+		vertical-align: middle;
+	}
+
+	a{
+		margin:0 3px;
+	}
+	.tip-btn-close{
+		position: absolute;
+		top:9px;
+		right:5px;
+		height: 16px;
+		width: 16px;
+		padding:0;
+		border:none;
+		background-color: transparent;
+		font:600 normal 14px/16px $fontSun;
+		font:600 normal 1.4rem/1.6rem $fontSun;
+		text-align: center;
+		vertical-align: middle;
+		speak:none;
+		cursor: pointer;
+		color:#999;
+		outline:none;
+
+		&:before{
+            content:'×';
+		}
+		&:hover{
+			color:darken($linkColor,5%);
+			text-decoration: none;
+		}	
+	}
+}
+
+// ---------------------------------------------
+// tip size
+.tip-small{
+	padding:9px 12px 9px 11px;
+	// border-width:1px;
+	// border-style:solid;
+	font-size: rem2px(1.2rem);
+	font-size: 1.2rem;
+
+	.tip-sign{
+		width: 16px;
+  	height: 21px;
+  	line-height: 20px;
+		font-size:rem2px(1.4rem);
+		font-size: 1.4rem;
+	}
+	p{
+		margin-left: 18px;
+	}
+}
+.tip-nor{
+	padding:16px 12px 16px 15px;
+	// border-width:1px;
+	// border-style:solid;
+
+	.tip-sign{
+		width: 24px;
+		height: 24px;
+		font-size:rem2px(2.4rem);
+		font-size: 2.4rem;
+		line-height: 1;
+	}
+	.tip-hd,.tip-bd,.tip-ope{
+		margin-left: 32px;
+	}
+	.tip-hd{
+		margin-bottom: 8px;
+		font-weight: 600;
+		font-size:rem2px(1.8rem);
+		font-size: 1.8rem;
+		height: 24px;
+		line-height: 24px;
+	}
+	.tip-bd{
+		// margin-top: 8px;
+	}
+	p,ul,.tip-ope{
+		color:#444;
+		font-size:rem2px(1.4rem);
+		font-size: 1.4rem;
+	}
+	ul,ol,.tip-ope{
+		margin-top: 8px;
+	}
+	ul li:before{
+		content:'\0020';
+		display: inline-block;
+		margin-left: 5px;
+		margin-right: 14px;
+		vertical-align: middle;
+		height: 4px;
+		width: 4px;
+		background-color: #666;
+		border-radius:50%;
+	}
+	li{
+		margin:3px 0;
+		font-size: rem2px(1.2rem);
+		font-size: 1.2rem;
+		font-family: $fontSun;
+        line-height: 1.4;
+	}
+	ol li{
+		margin-left: 5px;
+		padding-left:8px;
+		list-style-position: inside;
+	}
+	.tip-ope{
+		.btn{
+			margin-right:8px;
+		}
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			margin-right:8px;
+		}
+	}
+}
+.tip-big{
+	padding:20px;
+
+	.tip-sign{
+		width: 32px;
+		height: 32px;
+		font-size:rem2px(3.2rem);
+		font-size: 3.2rem;
+		line-height: 1;
+	}
+	.tip-hd{
+		margin-bottom: 8px;
+		font-weight: 600;
+		font-size:rem2px(2.4rem);
+		font-size: 2.4rem;
+		height: 32px;
+		line-height: 32px;
+
+		.fi{
+			vertical-align: middle;
+			font-size: 3.2rem;
+			font-size:rem2px(3.2rem);
+		}
+		em{
+			vertical-align: middle;
+		}
+	}
+	p,ul,.tip-ope{
+		color:#444;
+		font-size:rem2px(1.6rem);
+		font-size: 1.6rem;
+	}
+	ul,ol,.tip-ope{
+		margin-top: 8px;
+	}
+	ul li:before{
+		content:'\0020';
+		display: inline-block;
+		margin-left: 5px;
+		margin-right: 14px;
+		vertical-align: middle;
+		height: 4px;
+		width: 4px;
+		background-color: #666;
+		border-radius:50%;
+	}
+	li{
+		margin:3px 0;
+		font-size: rem2px(1.4rem);
+		font-size: 1.4rem;
+		font-family: $fontSun;
+        line-height: 1.6;
+	}
+	ol li{
+		margin-left: 5px;
+		padding-left:8px;
+		list-style-position: inside;
+	}
+	.tip-ope{
+		.btn{
+			margin-right:8px;
+		}
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			margin-right:8px;
+		}
+	}
+}
+
+// ---------------------------------------------
+// tip pop
+
+.tip-pop{
+	position: absolute;
+	top:50%;
+	left:50%;
+	min-width:320px;
+	max-width: 640px;
+}
+@if $openResponse{
+	@media #{$small-only}{
+		.tip-pop{
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			margin:auto !important;
+			width: 100%;
+			height:100%;
+		}
+	}
+}
+
+// ---------------------------------------------
+// tip style
+
+.tip-succ{
+	background-color:nth($successBgColor,1);
+	// border:1px solid darken(nth($successBgColor,1),12%);
+	color:nth($successColor,1);
+
+	.tip-sign:before{
+		content:$fi-var-check-circle;
+	}
+}
+.tip-info{
+	background-color:$infoBgColor;
+	// border:1px solid darken(nth($infoBgColor,1),12%);
+	color:$infoColor;
+
+	.tip-sign:before{
+		content:$fi-var-info-circle;
+	}
+}
+.tip-err{
+	background-color:nth($errorBgColor,1);
+	// border:1px solid darken(nth($errorBgColor,1),12%);
+	color:nth($errorColor,1);
+
+	.tip-sign:before{
+		content:$fi-var-times-circle;
+	}
+}
+.tip-warn{
+	background-color:nth($warningBgColor,1);
+	// border:1px solid darken(nth($warningBgColor,1),12%);
+	color:nth($warningColor,1);
+
+	.tip-sign:before{
+		content:$fi-var-exclamation-triangle;
+	}
+}

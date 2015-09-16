@@ -1,0 +1,332 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: form scss
+  description : 表单、表单元素、校验等样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to:any pages
+  ----------------------------------------------------
+*/
+/*----------.frm-ctrl text ----------*/
+input{
+	margin:0;
+	padding:0;
+}
+input:focus,
+select:focus,
+textarea:focus{
+	outline:none;
+}
+input::-ms-clear {
+    display: none; 
+}
+.frm-ctrl{
+	border-radius:$smallRadius;
+	border-width:1px;
+	border-style:solid;
+	border-color:#d6d7d8 #d6d7d8 #bebfc5;
+	font-size: 12px;
+	color:$grayDarker;
+	// resize:none;
+	vertical-align: middle;
+	-webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+	-moz-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+	&:focus{
+		border-color: #3bb4f2;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 3px rgba(59,180,242,.3);
+		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 3px rgba(59,180,242,.3);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 3px rgba(59,180,242,.3);
+	}
+	&>input{
+		border:none;
+		background-color: transparent;
+	}
+}
+.frm-ctrl::-webkit-input-placeholder,
+.frm-ctrl::-ms-input-placeholder,
+.frm-ctrl::-moz-placeholder{
+	color:#ccc；
+}
+.frm-ctrl-focus{
+	@extend .frm-ctrl:focus;
+}
+// ---------------------------------------
+// height size
+.frm-ctrl--small{
+	height: 25px;
+	line-height: 25px;
+}
+.frm-ctrl--middle{
+	padding-top:2px;
+	padding-bottom: 2px;
+	height: 30px;
+	*height:26px;
+	line-height: 26px;
+}
+.frm-ctrl--large{
+	padding-top:5px;
+	padding-bottom: 5px;
+	height: 36px;
+	*height:28px;
+	font-size: 14px;
+	line-height: 26px;
+}
+
+.tarea{
+	width:100%;
+	
+	#{&--static}{
+		resize:none;
+	}
+}
+
+
+@each $row in (2,3,5,7,8,10){
+	textarea.tarea-row--#{$row}{
+		height:14px * 1.5 *$row + 10px;
+		height:1.4rem * 1.5 * $row + 1rem;
+		padding:5px;
+		font-size: rem2px(1.4rem);
+		font-size: 1.4rem;
+		line-height: 1.5;
+	}
+}
+// -----------------------------------------
+// length size
+
+.frm-ctrl--xxs{
+	padding:0 2px;
+	width:30px;
+	*width:26px;
+}
+select.frm-ctrl--xxs{
+	padding:0;
+}
+.frm-ctrl--xs{
+	padding:0 2px;
+	width: 50px;
+	*width: 46px;
+}
+select.frm-ctrl--xs{
+	padding:0;
+}
+.frm-ctrl--sm{
+	padding:0 4px;
+	width:90px;
+	*width:80px;
+}
+select.frm-ctrl--sm{
+	padding:0;
+	*width:88px;
+}
+.frm-ctrl--normal{
+	padding:0 4px;
+	width:168px;
+	*width:158px;
+}
+select.frm-ctrl--normal{
+	padding:0;
+}
+.frm-ctrl--l{
+	padding:0 4px;
+	width:208px;
+	*width:188px;
+}
+select.frm-ctrl--l{
+	padding:0;
+	*width:206px;
+}
+.frm-ctrl--xl{
+	padding:0 4px;
+	width:306px;
+	*width:296px;
+}
+select.frm-ctrl--xl{
+	padding:0;
+	*width:296px;
+}
+.frm-ctrl--xxl{
+	padding:0 4px;
+	width:392px;
+}
+select.frm-ctrl--xl{
+	padding:0;
+	*width:388px;
+}
+.frm-ctrl--w{
+	padding:0 4px;
+	width:100%;
+	*padding:0;
+}
+select.frm-ctrl--w{
+	padding:0;
+}
+
+select{
+	border:1px solid #b0aeac;
+	height: 20px;
+	*height:18px;
+	font-size: 12px;
+	line-height: 18px;
+	border-radius:0;
+}
+label[for]{
+	cursor:pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button{
+	// 数字控件自带控制按钮样式
+}
+
+/* status */
+.frm-ctrl[disabled],select[disabled]{
+	color: #999;
+	-webkit-text-shadow: -1px -1px 0px #fcfcfc;
+	-moz-text-shadow: -1px -1px 0px #fcfcfc;
+	text-shadow: -1px -1px 0px #fcfcfc;
+	background-color: #fafafa;
+}
+.frm-ctrl[readonly],select[readonly]{
+	color:#808080;
+	background-color: #fcfcfc;
+}
+
+.frm-ctrl-rel{
+	display: inline-block;
+	font-weight: 600;
+	vertical-align: middle;
+	color:#666;
+}
+
+.frm-ctrl+.frm-ctrl,
+.frm-ctrl--large+.frm-ctrl--large,
+.frm-ctrl+select{
+	margin-left: 5px;
+}
+
+// -----------------------------------------------
+// checkbox & radios
+
+input[type="checkbox"]{
+	display: inline-block;
+	vertical-align: middle;
+	width:14px;
+	height: 14px;
+	background-color: #fff;
+}
+
+.frm-ctrl-group{
+	line-height:rem2px(1.4rem);
+	vertical-align: middle;
+	text-align:left;
+
+	*+.chkbox{
+		margin-left: 10px;
+	}
+}
+.frm-ctrl-group--vertical{
+	.chkbox{
+		display: block;
+	}
+	*+.chkbox{
+		margin-top: 5px;
+		margin-left: 0;
+	}
+}
+/*
+.chkbox{
+	input[type="checkbox"],
+	input[type="radio"]{
+		margin:-2px 4px 0 0;
+	}
+}
+*/
+
+
+// -----------------------------------------
+// styles
+
+.frm-ctrl--succ{
+	border-color:$successBorderColor;
+	background-color: $successBgColor;
+
+	&:focus{
+		border-color:$successColor;
+		-webkit-box-shadow:inset 0 1px 1px rgba($successBorderColor,0.075),0 0 3px rgba($successBorderColor,0.3);
+		-moz-box-shadow:inset 0 1px 1px rgba($successBorderColor,0.075),0 0 3px rgba($successBorderColor,0.3);
+		box-shadow:inset 0 1px 1px rgba($successBorderColor,0.075),0 0 3px rgba($successBorderColor,0.3);
+	}
+}
+.frm-ctrl--warn{
+	border-color:$warningBorderColor;
+	background-color: $warningBgColor;
+
+	&:focus{
+		border-color:$warningColor;
+		-webkit-box-shadow:inset 0 1px 1px rgba($warningBorderColor,0.075),0 0 3px rgba($warningBorderColor,0.3);
+		-moz-box-shadow:inset 0 1px 1px rgba($warningBorderColor,0.075),0 0 3px rgba($warningBorderColor,0.3);
+		box-shadow:inset 0 1px 1px rgba($warningBorderColor,0.075),0 0 3px rgba($warningBorderColor,0.3);
+	}
+}
+.frm-ctrl--err{
+	border-color:$errorBorderColor;
+	background-color: $errorBgColor;
+
+	&:focus{
+		border-color:$errorColor;
+		-webkit-box-shadow:inset 0 1px 1px rgba($errorBorderColor,0.075),0 0 3px rgba($errorBorderColor,0.3);
+		-moz-box-shadow:inset 0 1px 1px rgba($errorBorderColor,0.075),0 0 3px rgba($errorBorderColor,0.3);
+		box-shadow:inset 0 1px 1px rgba($errorBorderColor,0.075),0 0 3px rgba($errorBorderColor,0.3);
+	}
+}
+
+// ---------------------------------------------
+// controls
+
+.chkbox{
+	display: inline-block;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	font-size: rem2px(1.4rem);
+	line-height:rem2px(1.4rem);
+	vertical-align:middle;
+	word-spacing:-0.25em;
+
+	input[type="checkbox"],
+	input[type="radio"]{
+		width: 16px;
+		height: 16px;
+		padding:0;
+		word-spacing:normal;
+		overflow:hidden;
+		cursor: pointer;
+	}
+	input[type="radio"]{
+		margin-top: 0;
+		vertical-align:bottom;
+	}
+	input::-ms-check{
+		color:#1e8cbe;
+	}
+	label,.chkbox-txt{
+		display: inline-block;
+		padding-left:4px;
+		line-height: 16px;
+		vertical-align: middle;
+		word-spacing:normal;
+		cursor:pointer;
+	}
+	&.disabled{
+		cursor: not-allowed;
+
+		input[type="checkbox"],input[type="radio"],em{
+			cursor: not-allowed;
+		}
+	}
+}

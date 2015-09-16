@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: form turn scss
+  description : 表单增强样式，切换开关样式 只能在部分高级浏览器下显示
+  ----------------------------------------------------
+  dependencies : reset mixin ui_form
+  provided to:any pages
+  ----------------------------------------------------
+*/
+
+.ui-turn{
+	display: inline-block;
+	font-size: 12px;
+	word-spacing:-0.25em;
+	
+	.toggle{
+		display: inline-block;
+		padding:5px 10px;
+		word-spacing:normal;
+		border-top-width:1px;
+		border-bottom-width:1px;
+		border-right-width:1px;
+		border-color:#ccc;
+		border-style:solid;
+		background-color: #fff;
+		color: #333;
+
+		&:link,&:visited,&:hover{
+			color:$grayDarker;
+		}
+	}
+
+	.toggle:first-child{
+		border-top-left-radius:$baseRadius;
+		border-bottom-left-radius:$baseRadius;
+		border-left-width:1px;
+	}
+	.toggle:last-child{
+		border-top-right-radius:$baseRadius;
+		border-bottom-right-radius:$baseRadius;
+		border-right-width:1px;
+	}
+	.toggle.on{
+		color:#fff;
+		border-color:$successColor;
+		background-color: $successColor;
+
+		&:link,&:visited,&:hover{
+			color:#fff;
+			text-decoration: none;
+		}
+	}
+}
+
+.ui-turn--primary{
+	.toggle.on{
+		color:#fff;
+		border-color:$primaryColor;
+		background-color: $primaryColor;
+
+		&:link,&:visited,&:hover{
+			color:#fff;
+			text-decoration: none;
+		}
+	}
+}
+
+.ui-turn--disabled,.ui-turn.disabled{
+	.toggle.on{
+		color:#fff;
+		border-color:$disabledColor;
+		background-color: $disabledColor;
+
+		&:link,&:visited,&:hover{
+			color:$disabledBgColor;
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,280 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: layout form scss
+  description : 表单模块模块样式 可能嵌套在任何其他 layout 模块内，请注意耦合
+                可能需要与相应按钮、提示样式组合
+  ----------------------------------------------------
+  dependencies : common
+  provided to: after pages
+  ----------------------------------------------------
+*/
+
+// ------------------------------------
+// layout
+
+.frm{
+	position: relative;
+	margin-top: 12px;
+	margin-bottom: 30px;
+
+	fieldset{
+		border:none;
+		border-top:1px solid #ccc;
+		padding:26px 0 20px;
+
+		legend{
+			padding-left: 10px;
+			padding-right: 15px;
+			height: 32px;
+			height: 3.2rem;
+			font-size: 1.8rem;
+			font-size: rem2px(1.8rem);
+			line-height: rem2px(2.6rem);
+			line-height: 2.6rem;
+			font-weight:700;
+			color:#334b59;
+		}
+
+	}
+	.frm-item+.frm-item,.frm-combo+.frm-item,.frm-item+.frm-combo,.frm-combo+.frm-combo{
+		margin-top: 30px;
+	}
+	
+}
+.frm--short{
+	.frm-item+.frm-item,.frm-combo+.frm-item,.frm-item+.frm-combo,.frm-combo+.frm-combo{
+		margin-top: 15px;
+	}
+}
+.frm-ver{
+  .frm-item{
+  	padding-left: 0;
+
+  	dt,.frm-item-hd{
+  		position: static;
+  		height: rem2px(3rem);
+  		height: 3rem;
+  		width: 100%;
+  		line-height: rem2px(3rem);
+  		line-height: 3rem;
+  		text-align: left;
+  	}
+  	dd,.frm-item-bd{
+  		position: relative;
+  		width: 100%;
+  	}
+  	.frm-item-ctrl{
+  		float:left;
+  		&:first-child{
+  			padding-right: 5px;
+  		}
+
+  	}
+  	*+.frm-item-ctrl{
+  		padding-left: 5px;
+  	}
+  }
+  .frm-ope{
+  	margin-left: 0;
+  }
+}
+.frm-combo{
+	word-spacing:-0.3em;
+	*word-spacing:normal;
+	*letter-spacing:-0.25em;
+	@extend %fn-clr;
+	
+	.frm-item{
+		display: inline-block;
+		*display:inline;
+		*zoom:1;
+		word-spacing:normal;
+		letter-spacing:normal;
+	}
+	.frm-item+.frm-item{
+		margin-top: 0;
+	}
+}
+@for $i from 1 through 9{
+	.frm-col-#{$i}{
+		width: 0.1 * $i * 100%;
+	}
+}
+
+
+
+.frm-item{
+	position: relative;
+	padding-left: 167px;
+	@extend %fn-clr;
+
+	dt,.frm-item-hd{
+		position: absolute;
+		top:50%;
+		left:0;
+		margin-top: -12px;
+		width: 160px;
+		height: 24px;
+		line-height: 24px;
+		text-align:right;
+		color:#666;
+
+		em{
+			font-family: $fontSun;
+			color:#f00;
+		}
+	}
+	dd,.frm-item-bd{
+		position: relative;
+	}
+	.field-text{
+		color:$grayDark;
+	}
+	.chkbox-item{
+		display: block;
+		margin-left:-18px;
+		height: 1.5em;
+	}
+}
+.frm-item-large{
+	position: relative;
+	@extend %fn-clr;
+
+	dt{
+		float: none;
+		font-size:14px;
+		font-weight:600;
+
+		em{
+			font:500 12px/1 $fontSun;
+			color:#f00;
+		}
+	}
+	dd{
+		margin-top: 5px;
+		float: none;
+	}
+}
+.frm-item--tit-short{
+	padding-left: 80px;
+
+	dt,.frm-item-hd{
+		width: 73px;
+	}
+}
+.frm-item--align-top{
+	dt,.frm-item-hd{
+		top:0;
+		margin-top: 3px;
+	}
+}
+.frm-ope{
+	margin-top: 45px;
+	margin-bottom: 20px;
+	margin-left: 167px;
+	overflow:hidden;
+	*zoom:1;
+
+	.btn+.btn{
+		margin-left:8px;
+		vertical-align:bottom;
+	}
+	.btn-block{
+		margin-top: 10px;
+	}
+}
+
+/*---------- input file style ----------*/
+
+.frm-tail{
+	position: absolute;
+	right:0;
+	top:0;
+	width:160px;
+	line-height:30px;
+}
+
+.frm-vali{
+	position: absolute;
+	top:100%;
+	margin-top:5px;
+	font-size: 12px;
+	line-height: 1.4;
+	font-family: $fontSun;
+
+	.fi{
+		font-size: 14px;
+		vertical-align: top;
+		margin-right: 8px;
+		height: 16px;
+		line-height: 16px;
+	}
+	p{
+		display: inline-block;
+		*display:inline;
+		*zoom:1;
+		vertical-align: top;
+		line-height: 16px;
+	}
+}
+.frm-vali--hoz{
+	top:0;
+	margin-top:0;
+	left:100%;
+	margin-left: 8px;
+	width:280px;
+}
+.frm-vali-succ{
+	.fi{
+		color:nth($tipSuccess,2);
+	}
+	.fi:before{
+		content:$fi-var-check-circle;
+	}
+	p{
+		color:darken(nth($tipSuccess,2),16%);
+	}
+}
+.frm-vali-err{
+	.fi{
+		color:nth($tipError,2);
+	}
+	.fi:before{
+		content:$fi-var-times-circle;
+	}
+	p{
+		color:darken(nth($tipError,2),16%);
+	}
+}
+.frm-vali-info{
+	.fi{
+		color:nth($tipInfo,2);
+	}
+	.fi:before{
+		content:$fi-var-info-circle;
+	}
+	p{
+		color:darken(nth($tipInfo,2),16%);
+	}
+}
+.frm-vali-warn{
+	.fi{
+		color:nth($tipWarning,2);
+	}
+	.fi:before{
+		content:$fi-var-exclamation-triangle;
+	}
+	p{
+		color:darken(nth($tipWarning,2),16%);
+	}
+}
+.frm-vali-gray{
+	color:$grayDark;
+}
+.frm-vali-succ,
+.frm-vali-err,
+.frm-vali-info,
+.frm-vali-warn{
+	display: none;
+}

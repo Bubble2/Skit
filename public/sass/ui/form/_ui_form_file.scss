@@ -1,0 +1,316 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: form scss
+  description : 表单增强样式 文件上传组件，替代默认文件上传组件样式
+  ----------------------------------------------------
+  dependencies : reset mixin ui_form
+  provided to:any pages
+  ----------------------------------------------------
+*/
+
+/* html as :
+   <div class="frm-file frm-ctrl-w">
+        <div class="frm-file-path"></div>
+        <div class="frm-file-btn">上传</div>
+        <!--<input type="file" name="" id="">-->
+    </div>
+
+	file list:
+
+	<div class="frm-file-ope frm-ctrl-w">
+	  <h4>已添加一下文件：</h4>
+	  <div class="frm-file-lst">
+	      ...
+	  </div>
+	</div>
+
+	file item:
+
+	<section class="file-item js-file-item" id="{{fileId}}">
+		<button class="btn btn-mini btn-default remove-file js-remove-file">&times;</button>
+		<div class="file-item-info">
+	  		<strong class="js-name">{{fileName}}</strong>
+	  		<span class="js-size">{{fileSize}}</span>
+	  		{{if fileStatus==1}}
+	  		<span class="js-status at-text-secondary">待上传</span>
+	  		{{else if fileStatus==2}}
+	  		<span class="js-status at-text-info">正在上传</span>
+	  		{{else if fileStatus==5}}
+	  		<span class="js-status at-text-succ">已上传</span>
+	  		{{else if fileStatus==4}}
+	  		<span class="js-status at-text-err">上传失败</span>
+	  		{{/if}}
+		</div>
+		<div class="ui-progress js-progress">
+	  		<div class="progress-bar progress-bar-striped progress-bar-active">
+	    		<span class="progress-ratio"></span>
+	  		</div>
+		</div>
+	</section>
+
+	img file item:
+
+	<li class="file-img-item js-file-item" id="{{fileId}}">
+	  <button class="btn btn-mini btn-default remove-file js-remove-file">&times;</button>
+	  <div class="preview">
+	    <div class="ui-progress js-progress">
+	      <div class="progress-bar progress-bar-striped progress-bar-active">
+	        <span class="progress-ratio"></span>
+	      </div>
+	    </div>
+	    <img src="" class="js-preview-img">
+	  </div>
+	  <div class="img-info">
+	    <p><strong class="js-name">{{fileName}}</strong></p>
+	    <p class="js-status">
+	    	<span class="js-size">{{fileSize}}</span>
+	    	{{if fileStatus==1}}
+	  		<span class="js-status at-text-secondary">待上传</span>
+	  		{{else if fileStatus==2}}
+	  		<span class="js-status at-text-info">正在上传</span>
+	  		{{else if fileStatus==5}}
+	  		<span class="js-status at-text-succ">已上传</span>
+	  		{{else if fileStatus==4}}
+	  		<span class="js-status at-text-err">上传失败</span>
+	  		{{/if}}
+	    </p>
+	  </div>
+	</li>
+*/
+
+.frm-file{
+	display: inline-block;
+	position: relative;
+	overflow:hidden;
+	height:30px;
+	cursor: pointer;
+
+	[type="file"]{
+		position: absolute;
+		right: 120px;
+		top:0;
+		font-size: 999em;
+		line-height: 999em;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		cursor: pointer;
+	}
+	.frm-file-path,.frm-file-btn{
+		height: 30px;
+		
+	}
+	.frm-file-path{
+		position: absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		margin-right: 123px;
+		border-radius:3px 0 0 3px;
+		border-width:1px;
+		border-style:solid;
+		border-color:#d6d7d8 lighten(#d6d7d8,10%) #d6d7d8 #d6d7d8;
+		padding:0 6px;
+		-webkit-box-shadow:2px 0px 3px 1px rgba(0,0,0,.04) inset;
+		box-shadow:2px 0px 3px 1px rgba(0,0,0,.04) inset;
+		background-color: #fff;
+		color:#707070;
+		font-size: rem2px(1.2rem);
+		font-size: 1.2rem;
+		line-height: 26px;
+		text-align: left;
+		vertical-align: middle;
+		@include fn-text-overflow($width : auto);
+	}
+	.frm-file-btn{
+		position: absolute;
+  		right: 4px;
+  		top: 0;
+		width: 120px;
+		border-radius:0 3px 3px 0;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 14px;
+		color:#666;
+		-webkit-text-shadow: 0 1px 0 #fff;
+		text-shadow: 0 1px 0 #fff;
+		border-width:1px;
+		border-style:solid;
+		border-color:#d6d7d8 #d6d7d8 #d6d7d8 #ddd;
+		background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
+		background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
+		background-image: -webkit-gradient(linear, top, bottom, from(#f5f5f5), to(#ebebeb));
+		background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f5f5f5, endColorstr=#ebebeb);
+		background-color: $grayLight;
+
+		&:hover{
+			color:#333;
+		}
+		&:active{
+			background-image: -webkit-linear-gradient(top, #ebebeb,#f5f5f5);
+			background-image: -moz-linear-gradient(top, #ebebeb,#f5f5f5);
+			background-image: -webkit-gradient(linear, top, bottom, from(#ebebeb), to(#f5f5f5));
+			background-image: linear-gradient(to bottom, #ebebeb,#f5f5f5);
+			filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ebebeb, endColorstr=#f5f5f5);
+		}
+	}
+	// form file disabled
+	&.disabled{
+		cursor: not-allowed;
+
+		[type="file"]{
+			visibility: hidden;
+			cursor: not-allowed;
+		}
+		.frm-file-path{
+			color:#999;
+			background-color: #fafafa;
+		}
+		.frm-file-btn{
+			color:#999;
+			cursor: not-allowed;
+
+			&:hover,&:active{
+				background-image: -webkit-linear-gradient(top, #f5f5f5, #ebebeb);
+				background-image: -moz-linear-gradient(top, #f5f5f5, #ebebeb);
+				background-image: -webkit-gradient(linear, top, bottom, from(#f5f5f5), to(#ebebeb));
+				background-image: linear-gradient(to bottom, #f5f5f5, #ebebeb);
+				filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f5f5f5, endColorstr=#ebebeb);
+			}
+		}
+	}
+}
+
+// muilti files list
+
+.frm-file-ope{
+	margin:0 4px 15px 0;
+	border-radius:$smallRadius;
+	border:1px solid  #d6d7d8;
+	background-color: #fefefe;
+	-webkit-box-shadow:0px 0px 3px 1px rgba(0,0,0,0.04) inset;
+  	box-shadow:0px 0px 3px 1px rgba(0,0,0,0.04) inset;
+
+	h4{
+		color:#666;
+		padding:5px 10px;
+		// background-color: lighten(nth($primaryColor,1),15%);
+
+	}
+	.frm-file-lst{
+		padding:5px 10px;
+	}
+	.file-item{
+		position: relative;
+		margin:5px 0;
+		padding:10px;
+
+		&:hover{
+			background-color: #fafafa;
+
+			.remove-file{
+				
+				opacity: 1;
+				filter: alpha(opacity=100);
+			}
+		}
+		.remove-file{
+			opacity: 0.1;
+			filter: alpha(opacity=10);
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			-webkit-transition: opacity 200ms ease-in;
+			-moz-transition: opacity 200ms ease-in;
+			transition: opacity 200ms ease-in;
+		}
+		.file-item-info{
+			margin-bottom: 5px;
+
+			strong{
+				margin-right: 15px;
+			}
+		}
+		.ui-progress{
+			display: none;
+		}
+	}
+	.file-img-item{
+		position: relative;
+		float:left;
+		margin:0 0 10px 10px;
+		padding:5px;
+		border:1px solid #fafafa;
+
+		.preview{
+			position: relative;
+			height:160px;
+			width:160px;
+
+			img{
+				position: absolute;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				margin:auto;
+				max-width: 100%;
+			}
+			.ui-progress{
+				display: none;
+				position: absolute;
+				margin:-10px auto 0;
+				top:50%;
+				left:0;
+				right:0;
+				width: 80%;
+				z-index:1;
+			}
+		}
+		.remove-file{
+			opacity: 0.1;
+			filter: alpha(opacity=10);
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			z-index:2;
+			-webkit-transition: opacity 200ms ease-in;
+			-moz-transition: opacity 200ms ease-in;
+			transition: opacity 200ms ease-in;
+		}
+		.img-info{
+			p{
+				margin-bottom: 3px;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			span{
+				display: inline-block;
+				margin-right: 5px;
+			}
+			.js-name{
+				display: block;
+				width: 180px;
+				height: 19px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+		&:hover{
+			background-color: #fafafa;
+
+			.remove-file{
+				-webkit-transition: opacity 200ms ease-in;
+				-moz-transition: opacity 200ms ease-in;
+				transition: opacity 200ms ease-in;
+				opacity: 1;
+				filter: alpha(opacity=100);
+			}
+		}
+	}
+}
+.frm-file+.frm-file-ope{
+	margin-top: 15px;
+}

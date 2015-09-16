@@ -1,0 +1,47 @@
+// include top
+div.inc-top.fn-clearfix
+	ul#J_crumb.m-crumb
+		li 文档
+		li 入门
+	ul.inc-top-user.fn-clearfix
+		li#J_admin_name 欢迎你，访客！
+		li#J_message
+			i.fi.fi-bell-o.at-mr-small
+			em 消息
+			span.badge.badge--notice
+				b.arr--left
+				| 100
+		li
+			a(href="javascript:;",title="注销").user-logout.btn.btn-primary
+				i.fi.fi-power-off
+// /include top
+// include nav
+div.inc-nav.fn-clearfix
+	div.logo
+		a(href="/")
+			img(src="/images/logo.png",alt="kit logo")
+	ul.nav.fn-clearfix
+		li.curr
+			a(href="/doc")
+				span.nav-item-sign
+					i.fi.fi-file-text
+				em 基本用法
+		li
+			a(href="/module")
+				span.nav-item-sign
+					i.fi.fi-application
+				em React组件
+		//
+			li
+				a(href="/module-jq")
+					span.nav-item-sign
+						i.fi.fi-application
+					em JQuery组件
+			li
+				a(href="/demo")
+					span.nav-item-sign
+						i.fi.fi-tags
+					em 场景示例
+		
+		
+// /include nav

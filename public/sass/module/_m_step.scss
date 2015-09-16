@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module step scss
+  description : 步骤进度的模块样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to: after pages
+  ----------------------------------------------------
+*/
+.step-total-2,
+.step-total-3,
+.step-total-4{
+	margin-top:10px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	*zoom:1;
+	height:60px;
+
+	.step-line{
+		position: relative;
+		margin-top:9px;
+		margin-right:22px;
+		margin-left:22px;
+		height:2px;
+		font-size: 0;
+		line-height: 0;
+		background-color: #dddad6;
+
+		.step-line-curr{
+			float: left;
+			height:2px;
+			font-size: 0;
+			line-height: 0;
+			background-color: #178292;
+		}
+	}
+	.step-chd{
+		position: absolute;
+		top:-8px;
+		z-index:2;
+		width: 56px;
+		height: 56px;
+
+		em{
+			display: block;
+			margin-top: 6px;
+			line-height: 1.5;
+			text-align: center;
+			color: #666;
+		}
+	}
+	.point{
+		display: block;
+		margin:auto;
+		border-radius:50%;
+	}
+	.point-curr{
+		width: 19px;
+		height: 19px;
+		background-color: #178292;
+		background-color:transparent\9;
+		background-image: url($imgUrl+"/point_curr.png")\9;
+	}
+	.point-non{
+		margin-top: 3px;
+		width: 12px;
+		height: 12px;
+		background-color: #dddad6;
+		background-color:transparent\9;
+		background-image: url($imgUrl+"/point_non.png")\9;
+	}
+}
+.step-total-2{
+	width: 500px;
+	
+	.step-line-curr{
+		width: 100%;
+	}
+	.step-chd-1{
+		left: 0;
+	}
+	.step-chd-2{
+		right:0;
+	}
+}

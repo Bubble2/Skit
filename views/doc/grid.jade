@@ -1,0 +1,195 @@
+extends ../index
+block main
+	div.doc-header
+		h2 排版与栅格布局
+	div.doc-con
+		div.doc-param
+			h3 栅格布局
+			p 栅格为保证功能，只进行了简单的封装，但依然可以胜任绝大多数工作。
+			h4 变量依赖
+			ul
+				li
+					|栅格数量默认为12栅，可通过改变
+					code.nohighlight.code-inline core/variables
+					|里的
+					code.nohighlight.code-inline $gridNum
+					|变量来配置。SASS会根据配置自动计算百分比。
+				li
+					code.nohighlight.code-inline $wrapWidth
+					|配置了默认栅格宽度，默认值为990px
+				li
+					code.nohighlight.code-inline $wrapWideWidth
+					|配置了宽屏幕模式先栅格宽度，默认值是1190px。此配置需在开启响应式时有效。
+				li
+					code.nohighlight.code-inline $wrapMobileWidth
+					|配置了移动端栅格宽度，默认值是100%。此配置需在开启响应式时有效。
+
+
+			div.tip.tip-small.tip-warn.at-mt-mid
+				div.tip-sign
+				p
+					|此模块严重依赖
+					code.nohighlight.code-inline border-box
+					|盒子模型，因此不支持ie7-，且百分比计算在ie7-存在小数点偏差，如您需要兼容，请勿使用此模块。
+			
+			h4 用法
+			div.at-mt-mid
+				table.tb.tb-border.tb-align-left
+					colgroup
+						col(width="25%")
+						col(width="75%")
+					thead
+						tr
+							th Class
+							th 描述
+					tbody
+						tr
+							td 
+								code.nohighlight.code-inline .grid-g
+							td 100%宽度的栅格父层样式。
+						tr
+							td
+								code.nohighlight.code-inline .grid-w
+							td
+								|默认宽度样式。宽度由
+								code.nohighlight.code-inline $wrapWidth
+								|和
+								code.nohighlight.code-inline $wrapWideWidth
+								|决定。
+						tr
+							td
+								code.nohighlight.code-inline .grid-sm
+								code.nohighlight.code-inline .grid-mid
+								code.nohighlight.code-inline .grid-l
+							td
+								|其他定义的栅格父层样式。宽度分别是
+								|480px、640px、760px。
+						tr
+							td
+								code.nohighlight.code-inline .col-*
+							td
+								|栅格宽度样式，若配置为12栅，则
+								code.nohighlight.code-inline .col-1
+								|代表的宽度为 1/12，
+								code.nohighlight.code-inline .col-2
+								|代表的宽度为 2/12，以此类推。
+			
+			h4 示例
+			div.demo-wrap
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-1
+						div.demo-box col-1
+					div.col.col-11
+						div.demo-box col-11
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-2
+						div.demo-box col-2
+					div.col.col-10
+						div.demo-box col-10
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-3
+						div.demo-box col-3
+					div.col.col-9
+						div.demo-box col-9
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-4
+						div.demo-box col-4
+					div.col.col-8
+						div.demo-box col-8
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-5
+						div.demo-box col-5
+					div.col.col-7
+						div.demo-box col-7
+				div.grid-w.at-mt-mid.fn-clearfix
+					div.col.col-6
+						div.demo-box col-6
+					div.col.col-6
+						div.demo-box col-6
+		div.doc-param
+			h3 弹性栅格布局
+			div.tip.tip-small.tip-info.at-mt-mid
+				div.tip-sign
+				p 弹性盒模型栅格还在开发中，暂未发布，请耐心等待。
+		div.doc-param
+			h3 排版样式（TYPO）
+			p.at-mb-mid 排版样式除在<code class="nohighlight code-inline">core/common</code>修正外，其余都在<code class="nohighlight code-inline">core/typo</code>中，后者是可选的。请看示例：
+			h4 标题样式
+			div.doc-example
+				h1 h1 默认标题样式
+				h2 h2 默认标题样式
+				h3 h3 默认标题样式
+				h4 h4 默认标题样式
+				h5 h5 默认标题样式
+				h6 h6 默认标题样式
+				div.typo
+					h1 h1 Typo 标题样式 <small>我是小尾巴</small>
+					h2 h2 Typo 标题样式 <small>我是小尾巴</small>
+					h3 h3 Typo 标题样式 <small>我是小尾巴</small>
+					h4 h4 Typo 标题样式 <small>我是小尾巴</small>
+					h5 h5 Typo 标题样式 <small>我是小尾巴</small>
+					h6 h6 Typo 标题样式 <small>我是小尾巴</small>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{"<h1>h1 Typo 标题样式<small>我是小尾巴</small></h1>"}
+						#{"<h2>h2 Typo 标题样式<small>我是小尾巴</small></h2>"}
+						#{"<h3>h3 Typo 标题样式<small>我是小尾巴</small></h3>"}
+						#{"<h4>h4 Typo 标题样式<small>我是小尾巴</small></h4>"}
+						#{"<h5>h5 Typo 标题样式<small>我是小尾巴</small></h5>"}
+						#{"<h6>h6 Typo 标题样式<small>我是小尾巴</small></h6>"}
+						#{"<div class=\"typo\">"}
+							#{"<h1>h1 Typo 标题样式<small>我是小尾巴</small></h1>"}
+							#{"<h2>h2 Typo 标题样式<small>我是小尾巴</small></h2>"}
+							#{"<h3>h3 Typo 标题样式<small>我是小尾巴</small></h3>"}
+							#{"<h4>h4 Typo 标题样式<small>我是小尾巴</small></h4>"}
+							#{"<h5>h5 Typo 标题样式<small>我是小尾巴</small></h5>"}
+							#{"<h6>h6 Typo 标题样式<small>我是小尾巴</small></h6>"}
+						#{"</div>"}
+			h4 块或段落引用样式
+			p.at-mb-mid
+				|Skit在<code class="nohighlight code-inline">core/reset</code>、<code class="nohighlight code-inline">core/common</code>、<code class="nohighlight code-inline">moudle/m_table</code>、<code class="nohighlight code-inline">ui/ui_form</code>等文件中配置了一套基本的排版规范，但对于大量文字排版还略显不足。
+				|所以这里包含了<code class="nohighlight code-inline">typo.css</code>，并对其进行了修改以适用于Skit。
+			p.at-mb-mid
+				|typo对标题、段落排版以及诸如<code class="nohighlight code-inline">abbr</code>、<code class="nohighlight code-inline">del</code>、<code class="nohighlight code-inline">ins</code>这样的语义细节进行了更细致的规范。
+			blockquote
+				h4 <a href="https://github.com/sofish/Typo.css" target="_blank">TYPO.CSS</a>
+				p author: <a href="http://weibo.com/isofish" target="_blank">@sofish</a>
+				p
+					|基于 <a href="http://zh.wikipedia.org/wiki/MIT_License">MIT License</a> 开源，使用代码只需说明来源，或者引用 <a href="https://github.com/sofish/typo.css/blob/master/license.txt">license.txt</a> 即可。</p>
+			div.doc-example
+				div.typo
+					div.typo-p.typo-p--indent.typo-p--sag
+						|它只是一套样式的kit，包含一系列方案<del>，暂时不支持ie6</del><ins>最低支持ie8</ins>。它不是成品，但
+						|可以稍作改造而用于各种web项目。无论是企业、在线购物、
+						|管理系统都可以轻松适应。SKit是基于SASS，结构严格按照
+						|层级耦合的kit集，它不是框架，但也<mark>提供了一套完整的规范</mark>
+						|照着这套kit写下去，<em class="typo-em">你会轻松创造属于你自己的框架</em>。
+					div.typo-p.typo-p--indent.typo-p--sag
+						|It's just a kit for css style,which contains a series of solutions.
+						|It is not a finished product, but you can make some engineering for 
+						|a variety of web projects with it what easily adapt to various sences,
+						|no matter for enterprise site,shopping-online site or system of management.
+						|Skit is a set of kits,which is based on SASS and constructed by layers 
+						|strictly.Although SKit is not a frame, but <mark>also provides a complete set of 
+						|specifications</mark>.according that, <strong>you would create the frame just for your own</strong>.
+					blockquote
+						p <em class="at-mr-small">@author</em>shijinyu
+						p <abbr class="at-mr-small" title="mobile phone number">@cellphone</abbr>1850255****
+						p <em class="at-mr-small">@email</em>sjym90@gmail.com
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{"<div class=\"typo\">"}
+							#{"<div class=\"typo-p typo-p--indent typo-p--sag\">"}
+								#{"它只是一套样式的kit，包含一系..."}
+							#{"</div>"}
+							#{"<div class=\"typo-p typo-p--indent typo-p--sag\">"}
+								#{"It's just a kit for css style,which contains..."}
+							#{"</div>"}
+							#{"<blockquote>"}
+								#{"<p><em class=\"at-mr-small\">@author</em>shijinyu</p>"}
+								#{"<p><abbr class=\"at-mr-small\" title=\"mobile phone number\">@cellphone</abbr>1850255****</p>"}
+								#{"<p><em class=\"at-mr-small\">@email</em>sjym90@gmail.com</p>"}
+							#{"</blockquote>"}
+						#{"</div>"}

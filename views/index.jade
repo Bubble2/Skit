@@ -1,0 +1,43 @@
+extends base
+
+block append head
+	meta(name="description",content="")
+	link(rel='stylesheet',href='/css/console.css')
+
+block content
+	// side
+		div.inc-side
+			div.menu
+				div.menu-item
+					h3.menu-hd 入门
+					div.menu-lst
+						a(href="/").curr 介绍
+						a(href="/browser") 浏览器兼容性
+						a(href="/update") 更新记录
+				div.menu-item
+					h3.menu-hd 基础样式介绍
+					div.menu-lst
+						a(href="/style") 样式规范 
+						a(href="/structure") 项目结构
+						a(href="/grid") 栅格布局
+	div.inc-side
+		div.menu
+			each mnu in menu
+				div.menu-item
+					h3.menu-hd= mnu.name
+					div.menu-lst
+						each item in mnu.lists
+							if item["is-curr"]
+								a(href=item.href).curr= item.name
+							else
+								a(href=item.href)= item.name
+							
+
+	// /side
+	// main
+	div.inc-main
+		block main
+	// /main
+
+
+	

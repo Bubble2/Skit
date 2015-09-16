@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: query list scss
+  description : 查询条件结构所需的样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.ly-panel-query{
+	background-color: $grayLightx;
+	border-bottom:2px solid #f15a29;
+}
+.panel-query-top{
+	position: relative;
+	height: 45px;
+	padding:5px 8px;
+	border-bottom:1px solid lighten($gray,10%);
+	// background-color: lighten($gray,10%);
+	*height:30px;
+	min-width:500px;
+
+	&>h4{
+		float: left;
+		height: 30px;
+		font: 600 18px/30px $fontHei;
+	}
+	.query-top-main{
+		position: relative;
+		margin-right: 100px;
+	}
+	.query-top-tail{
+		position: absolute;
+		top:5px;
+		right:8px;
+		height: 30px;
+		line-height: 30px;
+		vertical-align: middle;
+
+	}
+}
+.query-bd{
+	padding:10px 8px;
+}
+.query-bd .cond-item:first-child{
+	margin-top: 0;
+}
+.cond-item{
+	margin-top: 15px;
+
+	.cond-item-ope{
+		vertical-align: middle;
+	}
+}
+.ly-query-item{
+	float: left;
+	margin-top: 10px;
+	margin-right: 28px;
+}
+.ly-query-ope{
+	clear:both;
+	padding: 10px 0;
+	text-align:right;
+
+	.btn{
+		margin-right:5px;
+		vertical-align: bottom;
+	}
+	.query-ope-lft{
+		float: left;
+		text-align: left;
+	}
+}

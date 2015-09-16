@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module drop select scss
+  description : drop select style
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.m-dropselect{
+	display: inline-block;
+	*display:inline;
+	*zoom:1;
+	position: relative;
+	vertical-align: middle;
+
+	.m-dropselect-hd{
+		position: relative;
+		z-index: 999;
+	}
+	.m-dropselect-title{
+		display: block;
+		padding-right:18px;
+		background-color: #fff;
+		cursor: pointer;
+	}
+	.m-dropselect-arrow{
+		position: absolute;
+		width: 12px;
+		height:16px;
+		right:5px;
+		top:50%;
+		margin-top: -8px;
+	}
+	.m-dropdown-content{
+		display: none;
+		position: absolute;
+		z-index:1000;
+		top:100%;
+		margin-top: 5px;
+		right:0;
+		width: 100%;
+		padding:5px 0;
+		border-radius:$smallRadius;
+		border:1px solid lighten($gray,10%);
+		background-color: #fff;
+		overflow: auto;
+
+		.dropdown-con-ope{
+			padding:5px 10px;
+			margin-bottom:5px;
+			vertical-align: middle;
+		}
+	}
+	.dropdown-con-lst,.dropdown-con-lst-2{
+
+		a{
+			display: block;
+			padding:2px 10px;
+			font: 14px/24px $fontHei;
+			-webkit-text-shadow: 1px 1px 0px #fff;
+			-moz-text-shadow: 1px 1px 0px #fff;
+			text-shadow: 1px 1px 0px #fff;
+			-webkit-transition: background-color 80ms ease-in;
+			-moz-transition: background-color 80ms ease-in;
+			transition: background-color 80ms ease-in;
+		}
+		a:link,a:visited{
+			text-decoration: none;
+			color:#666;
+		}
+		.curr a:link,.curr a:visited,a:hover{
+			color:#fff;
+			background-color: lighten(nth($primaryColor,1),5%);
+			-webkit-text-shadow: 1px 1px 0px #999;
+			-moz-text-shadow: 1px 1px 0px #999;
+			text-shadow: 1px 1px 0px #999;
+		}
+		.dropdown-item-tit{
+			position: relative;
+			padding-left: 24px;
+
+			.toggle-arrow{
+				position: absolute;
+				width: 16px;
+				height:16px;
+				text-align: center;
+				left:5px;
+				top:50%;
+				margin-top: -8px;
+				line-height: 16px;
+			}
+		}
+	}
+	.dropdown-con-lst{
+		background-color: #f7f7f7;
+	}
+	.dropdown-con-lst--default{
+		display: none;
+		background-color: #fefefe;
+
+		a{
+			padding-left: 36px;
+		}
+	}
+
+}

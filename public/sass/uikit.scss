@@ -1,0 +1,70 @@
+﻿/*
+  -----------------------------------------------------
+  name: ui kit total
+  description : 全部样式类，实际使用中请根据页面情况增加模块
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+// -----------------------------------
+// require core files
+@import "core/variables";
+@import "core/functions";
+@import "core/mixin";
+@import "core/reset";
+@import "core/common";
+@import "core/typo";
+
+// -----------------------------------
+// require atom files
+@import "core/grid";
+// @import "core/grid_flex";
+@import "core/atom";
+
+// -----------------------------------
+// require font icons files
+@import "font_icons/_suifont";
+
+// -----------------------------------
+// require layout frame
+@import "layout/ly_panel";
+@import "layout/ly_form";
+@import "layout/ly_pop";
+@import "layout/ly_query";
+
+// -----------------------------------
+// require ui files
+
+@import "ui/ui_form";
+@import "ui/form/ui_form_ex";
+@import "ui/form/ui_form_file";
+@import "ui/form/ui_form_date_pick";
+@import "ui/form/ui_form_ipv4";
+@import "ui/form/ui_form_turn";
+
+@import "ui/ui_button";
+@import "ui/ui_label";
+@import "ui/ui_badge";
+// @import "ui/icon/icon_16";
+// @import "ui/icon/icon_32";
+@import "ui/ui_tip";
+@import "ui/ui_progress";
+// @import "ui/ui_slider";
+
+// -----------------------------------
+// require module
+@import "module/m_pager";
+@import "module/m_tab";
+@import "module/m_table";
+@import "module/m_dropdown";
+@import "module/m_dropselect";
+@import "module/m_tools";
+@import "module/m_inputbox";
+@import "module/m_crumb";
+@import "module/m_field";
+@import "module/m_popover";
+@import "module/m_avaliable_select";
+@import "module/m_loading";
+@import "module/_m_input_droptips.scss";

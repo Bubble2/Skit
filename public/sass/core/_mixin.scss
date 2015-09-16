@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: mixin scss
+  description : placeholder和mixin集成
+  ----------------------------------------------------
+  dependencies : settings & reset & grid
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+//----------------------------------------------------
+//  placeholder and mixin style
+//----
+
+// clear fix
+%fn-clr{
+
+  *zoom:1;
+  
+  &:after{
+    content:"\0020";
+    display:table;
+    height:0;
+    visibility:hidden;
+    clear:both;
+  }
+}
+// background image with ie6 
+
+@mixin background-image($url,$file){
+  background-image:url(#{$url}#{nth($file,1)});
+  @if nth($file,2){
+    _background-image:url(#{$url}#{nth($file,2)});
+  }
+}
+
+// text overflow
+
+@mixin fn-text-overflow($width : 100%){
+  width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//  inline-block by w3cplus from https://github.com/airen/Sass_mixins_function/
+
+@mixin inline-block($alignment: middle,$inline-simulat:true) {
+  display: inline-block;
+  @if($alignment != none) {
+    vertical-align: $alignment;
+  }
+  @if $inline-simulat {
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+// Center-align a block level element from https://github.com/marvin1023/sassCore/blob/master/core/_mixin.scss
+// block得有宽度margin左右为auto才能居中
+@mixin center-block ($extend:true) {
+  @if $extend {
+    @extend %center-block;
+  } @else {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// 黑色背景色半透明 from https://github.com/marvin1023/sassCore/blob/master/core/_mixin.scss
+@mixin bgcolor-alpha($bgcolor: rgba(0,0,0,.5)){
+  color:#fff;
+  @if $filter{
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
+  }@else{
+    background-color: #333;
+  }
+  background-color:$bgcolor;
+}
+%bgcolor-alpha{
+  @include bgcolor-alpha;
+}
+
+// 线性渐变
+
+@mixin bg-linear-gradient(
+  $offset : top,
+  $bg-linear : (), // $bg-linear : (#111,#222)
+  $ie : false // 'filter' or ('image',"path/to/img.jpg")
+){
+  background-image: -webkit-linear-gradient($offset,nth($bg-linear,1),nth($bg-linear,2));
+  background-image: -moz-linear-gradient($offset,nth($bg-linear,1),nth($bg-linear,2));
+  background-image: -webkit-gradient(linear,top,bottom,from(nth($bg-linear,1)),to(nth($bg-linear,2)));
+  background-image: linear-gradient(to bottom,nth($bg-linear,1),nth($bg-linear,2));
+  @if($ie == 'filter'){
+    $iestr  : ();
+    @each $bglinear-val in $bg-linear {
+      $iestr  :append($iestr,$bglinear-val);
+    } 
+    
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{nth($iestr,1)}, endColorstr=#{nth($iestr,2)});
+  }
+  @else if(nth($ie,1) == 'image'){
+    background-image:url(#{nth($ie,2)})\0;
+    background-repeat: repeat-x\0;
+  }
+}
+
+/* --------- ui mixin --------- */
+
+// button style
+
+@mixin button-style(
+    $color:#555,
+    $shadow-color:#fff,
+    $bg-color:#ebebeb,
+    $radius: 3px,
+    $border-width:1px,
+    $border-color-rgba:rgba(0,0,0,.0) rgba(0,0,0,.0) rgba(0,0,0,.3),
+    $border-color:#ccc #ccc #ddd,
+    $bg-linear:false,   // $bg-linear:(#fff,#eee)
+    $bg-color:#ccc
+){
+  @if($border-width){
+    border-width:  $border-width;
+    border-style: solid;
+  }
+  @if($border-color){
+    border-color: #{$border-color};
+  }
+  @if($border-color-rgba){
+    border-color: #{$border-color-rgba};
+  }
+  @if($radius){
+    border-radius:$radius;
+  }
+  @if($bg-color){
+    background-color: $bg-color;
+  }
+  @if($bg-linear){
+    $bg-linear-hover: darken($bg-linear,5%);
+
+    @include bg-linear-gradient(
+      $offset : top,
+      $bg-linear : $bg-linear, // $bg-linear : (#111,#222)
+      $ie : 'filter' // 'filter' or ('image',"path/to/img.jpg")
+    );
+
+    // background-image: -webkit-linear-gradient(top,nth($bg-linear,1),nth($bg-linear,2));
+    // background-image: -moz-linear-gradient(to bottom,nth($bg-linear,1),nth($bg-linear,2));
+    // background-image: -webkit-gradient(linear,top,bottom,from(nth($bg-linear,1)),to(nth($bg-linear,2)));
+    // background-image: linear-gradient(to bottom,nth($bg-linear,1),nth($bg-linear,2));
+  }
+  @if($shadow-color){
+    text-shadow: 0 $shadow-color 0 #fff;
+  }
+  color:$color;
+
+  &:link,&:visited{
+    color:$color;
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+    @if($bg-color){
+      background-color: darken($bg-color, 5%);
+    }
+    color:darken($color, 5%);
+    @if($bg-linear){
+
+      @include bg-linear-gradient(
+        $offset : top,
+        $bg-linear : $bg-linear-hover, // $bg-linear : (#111,#222)
+        $ie : 'filter' // 'filter' or ('image',"path/to/img.jpg")
+      );
+      // background-image: -webkit-linear-gradient(top,darken(nth($bg-linear,1),5%),darken(nth($bg-linear,2),5%));
+      // background-image: -moz-linear-gradient(to bottom,darken(nth($bg-linear,1),5%),darken(nth($bg-linear,2),5%));
+      // background-image: -webkit-gradient(linear,top,bottom,from(darken(nth($bg-linear,1),5%)),to(darken(nth($bg-linear,2),5%)));
+      // background-image: linear-gradient(to bottom,darken(nth($bg-linear,1),5%),darken(nth($bg-linear,2),5%));
+    }
+  }
+  &:disabled,&[disabled],&[disabled]:hover,&[disabled]:active{
+    cursor: default;
+    color: grayscale(lighten($color,8%));
+    @if($bg-color){
+      background-color: lighten($bg-color, 8%);
+    }
+    @if($bg-linear){
+
+      @include bg-linear-gradient(
+        $offset : top,
+        $bg-linear : lighten($bg-linear,5%), // $bg-linear : (#111,#222)
+        $ie : 'filter' // 'filter' or ('image',"path/to/img.jpg")
+      );
+      // background-image: -webkit-linear-gradient(top,lighten(nth($bg-linear,1),5%),lighten(nth($bg-linear,2),5%));
+      // background-image: -moz-linear-gradient(to bottom,lighten(nth($bg-linear,1),5%),lighten(nth($bg-linear,2),5%));
+      // background-image: -webkit-gradient(linear,top,bottom,from(lighten(nth($bg-linear,1),5%)),to(lighten(nth($bg-linear,2),5%)));
+      // background-image: linear-gradient(to bottom,lighten(nth($bg-linear,1),5%),lighten(nth($bg-linear,2),5%));
+    }
+  }
+}
+
+/* --------- atom mixin --------- */
+
+@mixin atom($attr,$val){ 
+  #{$attr}:rem2px($val)#{\0};
+  #{$attr}:$val;
+}

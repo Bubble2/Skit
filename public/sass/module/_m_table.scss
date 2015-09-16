@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: table scss
+  description : 表格的样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to: after pages
+  ----------------------------------------------------
+*/
+.tb{
+	table-layout: fixed;
+	width: 100%;
+
+	&>caption {
+		padding: 8px 5px;
+		font-weight: 600;
+		color: #777;
+		text-align: left;
+	}
+	&>thead>tr>th,thead>tr>td{
+		background-color: #f9f9f9;
+	}
+	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+		padding:8px;
+		line-height: rem2px(2.2rem);
+		line-height:2.2rem;
+		text-align: center;
+		color: #666;
+	}
+	&>tbody>.odd>td{
+		background-color: #f4fafe;
+	}
+	/* fixed align */
+	&>tbody>tr>.at-align-left,&>thead>tr>.at-align-left{
+		text-align:left;
+	}
+	&>tbody>tr>.at-align-right,&>thead>tr>.at-align-right{
+		text-align:left;
+	}
+}
+.tb-align-left{
+	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+		text-align: left;
+	}
+}
+.tb-align-right{
+	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+		text-align: right;
+	}
+}
+.tb-line{
+	&>thead>tr>th,&>tbody>tr>th{
+		background-color: transparent;
+	}
+	&>tbody>tr>th,&>tbody>tr>td,&>tfoot>tr>td{
+		border-bottom: 1px solid #ddd;
+		color: #666;
+	}
+	&>thead>tr>th,&>thead>tr>td{
+		font-weight: 600;
+		border-bottom: 2px solid #ddd;
+	}
+}
+.tb-default{
+	&>thead>tr>th,&>thead>tr>td{
+		background-color: #f9f9f9;
+		border-bottom:2px solid #ccc;
+	}
+	&>tbody>tr>th,&>tbody>tr>td,&>tfoot>tr>td{
+		background-color: #fefefe;
+	}
+}
+.tb-striped{
+	&>thead>tr>th,&>thead>tr>td{
+		background-color: #f9f9f9;
+		border-bottom:2px solid #ccc;
+	}
+	&>tbody>tr:nth-child(odd)>td,&>tbody>tr:nth-child(odd)>th,&>tfoot>tr:nth-child(odd)>td{
+		background-color: #f4fafe;
+	}
+}
+.tb-border{
+    border:1px solid #999;
+
+    &>caption {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		font: 600 14px/1.5 $fontHei;
+		color: #fff;
+		text-align: left;
+		background-color: #ddd;
+	}
+	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+		border: 1px solid #ddd;
+	}
+	&>thead>tr>th,thead>tr>td{
+		font-weight: 600;
+		border: 1px solid #ddd;
+		background-color: #f9f9f9;
+	}
+}
+.tb--hover tr:hover td{
+	background-color: #fff;
+}

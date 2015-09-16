@@ -1,0 +1,259 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// setting scss
+//-----------------------------------------------------
+
+
+// 开关设置
+//-----------------------------------------------------
+
+$lte7:                  false  !default; //是否兼容ie6-7
+$filter:                true  !default; //是否为ie8- 开启css3滤镜兼容，常用于渐变背景
+$openResponse:          true  !default; //是否开启响应式
+$printStyleSwitch:      false !default; //是否开启打印样式
+
+
+// 基本单位设置 px || rem
+//-----------------------------------------------------
+
+$px:                    'px' !default;
+
+// 栅格设置
+//-----------------------------------------------------
+$wrapWidth:             990px !default;   // 默认栅格宽度
+$wrapWideWidth:         1190px !default;  // 宽屏栅格宽度
+$wrapMobileWidth:       100% !default;    // 移动端栅格宽度
+$gridNum:               12 !default;      // 栅格数量
+
+
+// 间距设置
+//-----------------------------------------------------
+/* 目前分为小中大三种间距，可任意设置键值对数量，将会生成相应样式，做原子样式时用
+
+  格式：
+
+      .at-mg-small{
+            margin:10px;
+      }
+
+*/
+
+$spaceBase  :  (small:0.5rem,mid:1rem,large:2rem,exlarge:3rem);
+
+// font
+//-----------------------------------------------------
+$rootFontSize:          10px;           // 根元素字号
+$baseFontSize:          $rootFontSize * 1.2 !default; // 默认字号
+$baseLineHeight:        1.25 !default;   // 默认行高
+$baseFontFamily:        "Segoe UI", arial, "Hiragino Sans GB", "\5b8b\4f53", sans-serif !default;
+
+
+$fontSerif:             "Segoe UI","Helvetica Neue",arial,"Source Han sans","Hiragino Sans GB","\5b8b\4f53";
+$fontSans:              "Segoe UI","Helvetica Neue",arial,"Source Han sans","Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1","\9ED1\4F53","\534E\6587\9ED1\4F53";
+
+$fontSun:               "\5b8b\4f53"; //宋体
+$fontHei:               "Segoe UI","Helvetica Neue",arial,"Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1","\9ED1\4F53","\534E\6587\9ED1\4F53"; //冬青黑 微软雅黑 黑体 华文黑体
+$fontMonospace:          Monaco,Menlo,Consolas,"Courier New",monospace;
+$fontKaiti:              Georgia,"Times New Roman","stkaiti","\6977\4F53","kaiti gb2312";
+
+// font level size
+$xsFontSize:            $rootFontSize * 1.2;
+$smFontSize:            $rootFontSize * 1.4;
+$mediumFontSize:        $rootFontSize * 1.6;
+$lgFontSize:            $rootFontSize * 1.8;
+$xlFontSize:            $rootFontSize * 2.4;
+$xxlFontSize:           $rootFontSize * 2.8;
+$xxxlFontSize:          $rootFontSize * 3.2;
+
+//-----------------------------------------------------
+//  资源路径
+//  字体图标路径需要在font_icons/variables单独配置
+
+
+$resUrl:                "/";
+$imgUrl:                "../images/";
+// $fontUrl:               "../fonts/";
+
+
+
+// 元素上下间距
+//-----------------------------------------------------
+$baseGap:               20px !default;
+
+
+// 基本颜色
+/*
+** color function : http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+** lighten($color, $amount)
+** darken($color, $amount)
+** opacify($color, $amount)
+*/
+
+//-----------------------------------------------------
+$black:                 #000 !default;
+$blackLight:            #333 !default;
+$grayDarker:            #666 !default;
+$grayDark:              #999 !default;
+$gray:                  #ccc !default;
+$grayLight:             #f5f5f5 !default;
+$grayLightx:            #fafafa !default;
+$white:                 #fff !default;
+
+$red:                   #cc3300 !default;
+$blue:                  #00a8e6 !default;
+$blueDark:              #47acca !default;
+$orange:                #f96340 !default;
+$green:                 #6ea104 !default;
+$yellow:                #ffe400 !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
+
+
+// link
+//-----------------------------------------------------
+// 如果只有一个值则滑过的值为这个值的darken 5%，如果
+// 有两个值则第二个值为滑过的值
+$linkColor:             rgb(0,119,211) !default;
+
+
+// scaffolding
+//-----------------------------------------------------
+$bodyBgColor:           #fff !default;
+$textColor:             #333 !default;
+
+
+// placeholder
+//-----------------------------------------------------
+// 变量分别为：是否输出表单的占位符placeholder样式，文本色
+$placeholder:           true $gray !default;
+
+
+// 交互配色
+// 按钮、状态块颜色：默认，主要，次要，提示，错误，成功
+//-----------------------------------------------------
+// 每个变量都可以有三个颜色值，分别为：normal，hover，active
+// 可使用darken 或 lighten 函数设置
+
+$defaultColor:                 #666666 !default;
+$primaryColor:                 #d7342e !default;
+$secondaryColor:               #2e6da4 !default;
+$infoColor:                    #47A4C0 !default;
+$noticeColor:                  #2185d0 !default;
+$QuestionColor:                #e03997 !default;
+$warningColor:                 #c57b19 !default;
+$errorColor:                   #dc1e18 !default;
+$successColor:                 #287128 !default;
+$untreatedColor:               #a5673f !default;
+$disabledColor:                #f5f5f5 !default;
+
+$defaultBorderColor:           lighten($defaultColor,32%) !default;
+$primaryBorderColor:           lighten($primaryColor,8%) !default;
+$secondaryBorderColor:         lighten($secondaryColor,18%) !default;
+$infoBorderColor:              lighten($infoColor,6%) !default;
+$noticeBorderColor:            lighten($noticeColor,8%) !default;
+$QuestionBorderColor:          lighten($QuestionColor,8%) !default;
+$warningBorderColor:           lighten($warningColor,8%) !default;
+$errorBorderColor:             lighten($errorColor,8%) !default;
+$successBorderColor:           lighten($successColor,8%) !default;
+$untreatedBorderColor:         #999 !default;
+$disabledBorderColor:          #ccc !default;
+
+$defaultBgColor:               lighten($defaultColor,42%) !default;
+$primaryBgColor:               lighten($primaryColor,36%) !default;
+$secondaryBgColor:             lighten($secondaryColor,60%) !default;
+$infoBgColor:                  lighten($infoColor,40%) !default;
+$noticeBgColor:                lighten($noticeColor,60%) !default;
+$QuestionBgColor:              lighten($QuestionColor,60%) !default;
+$warningBgColor:               lighten($warningColor,48%) !default;
+$errorBgColor:                 lighten($errorColor,48%) !default;
+$successBgColor:               lighten($successColor,60%) !default;
+$untreatedBgColor:             #999 !default;
+$disabledBgColor:              #ccc !default;
+
+
+// 将上述色值合成为Map供遍历
+
+//-----------------------------------------------------
+// 无需修改
+
+$colorMap:(
+      default:    $defaultColor,
+      primary:    $primaryColor,
+      secondary:  $secondaryColor,
+      info:       $infoColor,
+      notice:     $noticeColor,
+      quest:   $QuestionColor,
+      warn:    $warningColor,
+      error:      $errorColor,
+      succ:    $successColor,
+      untreated:  $untreatedColor,
+      disabled:   $disabledColor
+);
+
+$bgColorMap:(
+      default:    $defaultBgColor,
+      primary:    $primaryBgColor,
+      secondary:  $secondaryBgColor,
+      info:       $infoBgColor,
+      notice:     $noticeBgColor,
+      quest:   $QuestionBgColor,
+      warn:    $warningBgColor,
+      error:      $errorBgColor,
+      succ:    $successBgColor,
+      untreated:  $untreatedBgColor,
+      disabled:   $disabledBgColor
+);
+
+// 提示块颜色：默认，主要，提示，错误，成功
+//-----------------------------------------------------
+// 每个变量都有两个个颜色值，分别为：背景色，前景色
+$tipInfo:                    #edf4fa #1c75bb !default;
+$tipNotice:                  #edf4fa #1c75bb !default;
+$tipQuestion:                #edf4fa #1c75bb !default;
+$tipSuccess:                 #ebf9df #58991f !default;
+$tipWarning:                 #faeed4 #c59120 !default;
+$tipError:                   #faedee #cc220b !default;
+
+// radius
+//-----------------------------------------------------
+$baseRadius:            3px !default;
+$smallRadius:           2px !default;
+
+
+// z-index
+//-----------------------------------------------------
+$zindexDropdown:        1000 !default;
+$zindexFixedTopbar:     1010 !default;
+$zindexTooltip:         1020 !default;
+$zindexAlert:           1030 !default;
+$zindexModal:           1100 !default;
+$zindexMask:            2000 !default;
+$zindexPop:             2900 !default;
+
+// Media Query 断点
+//-----------------------------------------------------
+$xsmall-point:  480px;
+$small-range:   0 640px;       /* 0, 640px */
+$medium-range:  641px 1024px;  /* 641px, 1024px */
+$large-range:   1025px 1440px;  /* 1025px, 1440px */
+$xlarge-range:  1441px 1920px; /* 1441px, 1920px */
+// $xxlarge-range: (1921px);       /* 1921px */
+
+
+$screen:       "only screen" !default;
+$landscape:    "#{$screen} and (orientation: landscape)" !default;
+$portrait:     "#{$screen} and (orientation: portrait)" !default;
+
+$xsmall:       "#{$screen} and (max-width: #{$xsmall-point})" !default;
+$small-up:     $screen !default;
+$small-only:   "#{$screen} and (max-width: #{nth($small-range,2)})" !default;
+$medium-down:  "#{$screen} and (max-width:#{nth($medium-range,2)})" !default;
+$medium-up:    "#{$screen} and (min-width:#{nth($medium-range,2)})" !default;
+$medium-only:  "#{$screen} and (min-width:#{nth($medium-range,1)}) and (max-width:#{nth($medium-range,2)})" !default;
+$large-up:     "#{$screen} and (min-width:#{nth($large-range,1)})" !default;
+$large-only:   "#{$screen} and (min-width:#{nth($large-range,1)}) and (max-width:#{nth($large-range,2)})" !default;
+$xlarge-up:    "#{$screen} and (min-width:#{nth($xlarge-range,1)})" !default;
+$xlarge-only:  "#{$screen} and (min-width:#{nth($xlarge-range,1)}) and (max-width:#{nth($xlarge-range,2)})" !default;
+
+// $xxlarge-up:   "#{$screen} and (min-width:#{nth($xxlarge-range,1)})" !default;
+// $xxlarge-only: "#{$screen} and (min-width:#{nth($xxlarge-range,1)}) and (max-width:#{nth($xxlarge-range,2)})" !default;

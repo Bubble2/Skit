@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module search combo scss
+  description : 搜索框样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to: after pages
+  ----------------------------------------------------
+*/
+
+.m-field{
+	white-space: nowrap;
+
+	.frm-field-tit{
+		display: inline-block;
+		vertical-align: middle;
+		margin:0 0 0 10px;
+		font-size: 14px;
+		line-height: 30px;
+	}
+	&>.btn{
+		vertical-align: middle;
+	}
+	&>*+.frm-ctrl,&>*+.btn,&>*+.m-btn-group{
+		margin-left: 5px;
+	}
+}

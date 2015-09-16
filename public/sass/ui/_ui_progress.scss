@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui progress scss
+  description : 进度条类样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.ui-progress{
+	height: 20px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	background-color: $grayLight;
+	border-radius: $smallRadius;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.progress-bar{
+	float: left;
+	width: 0;
+	height: 100%;
+	overflow:hidden;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align:right;
+	background-color: nth($primaryColor,1);
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	-webkit-transition: width .6s ease,background-color .6s ease;
+	-o-transition: width .6s ease,background-color .6s ease;
+	transition: width .6s ease,background-color .6s ease;
+
+	.progress-ratio{
+		display: inline-block;
+		margin-right: 5px;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select:none;
+		color: #fff;
+	}
+}
+.ui-progress-succ .progress-bar{
+	background-color: nth($successColor,1);
+}
+.ui-progress-info .progress-bar{
+	background-color: nth($infoColor,1);
+}
+.ui-progress-warn .progress-bar{
+	background-color: nth($warningColor,1);
+}
+.ui-progress-err .progress-bar{
+	background-color: nth($errorColor,1);
+}
+.ui-progress.disabled .progress-bar{
+	background-color: $grayDark;
+}
+.progress-bar-striped{
+	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+	-webkit-background-size: 40px 40px;
+	background-size: 40px 40px;
+}
+.progress-bar-active{
+	-webkit-animation: progress_scroll 2s linear infinite;
+	animation: progress_scroll 2s linear infinite;
+}
+
+@-webkit-keyframes progress_scroll {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@-moz-keyframes progress_scroll {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@keyframes progress_scroll {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}

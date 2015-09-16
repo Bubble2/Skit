@@ -1,0 +1,44 @@
+.inc-side{
+	position: absolute;
+	left:0;
+	top:100px;
+	bottom:0;
+	width:200px;
+	background-color: #f7f7f7;
+	border-right:1px solid #ccc;
+	overflow-y:auto;
+}
+.menu{
+	margin-top: 10px;
+	padding:0 15px;
+
+	.menu-item:last-child{
+		border-bottom: none;
+	}
+}
+.menu-item{
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ebebeb;
+
+	h3{
+		padding:0 5px 5px;
+		font:600 16px/1.8 $fontSans;
+	}
+}
+.menu-lst{
+	a{
+		display: block;
+		padding:0 5px;
+		height: 24px;
+		font: 12px/24px $fontSans;
+
+		&:link,&:visited{
+			color:#666;
+		}
+		&:hover,&.curr:link,&.curr:visited,&.curr:hover{
+  		color: #fff;
+  		background-color: #005aa0;
+		}
+	}
+}

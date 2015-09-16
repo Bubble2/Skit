@@ -1,0 +1,94 @@
+extends ../index
+block main
+	div.doc-header
+		h2= title
+	div.doc-con
+		div.doc-param
+			h3 基本使用
+			p.
+				关于按钮样式的配置，来自<code class="nohighlight code-inline">ui/ui_button</code>文件。
+				<code class="nohighlight code-inline">SKit</code>默认为按钮提供4种尺寸、6种样式。
+			p.
+				<code class="nohighlight code-inline">.btn</code>、<code class="nohighlight code-inline">.btn-block</code>（按钮块）是按钮样式的基类，它会定义各类型按钮的公共样式，但无法完整地给按钮应用样式。还需要额外给按钮定义尺寸、颜色、图标等。
+			p.
+				可以为<code class="nohighlight code-inline">&lt;a&gt;</code>、<code class="nohighlight code-inline">&lt;button&gt;</code>、<code class="nohighlight code-inline">&lt;input&gt;</code>甚至<code class="nohighlight code-inline">&lt;span&gt;</code>应用这些样式。
+			h4 示例
+			h5 按钮尺寸示例
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<button class="btn btn-mini btn-default">迷你按钮</button>
+					<button class="btn btn-small btn-default">小按钮</button>
+					<button class="btn btn-mid btn-default">中按钮</button>
+					<button class="btn btn-big btn-default">大按钮</button>
+				div.at-mt-small.at-mb-small.
+					<button class="btn-block btn-big btn-default">块级按钮</button>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<button class=\"btn btn-mini btn-default\">迷你按钮<\/button>'}
+						#{'<button class=\"btn btn-small btn-default\">小按钮<\/button>'}
+						#{'<button class=\"btn btn-mid btn-default\">中按钮<\/button>'}
+						#{'<button class=\"btn btn-big btn-default\">大按钮<\/button>'}
+			h5 按钮样式示例
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<button class="btn btn-mid btn-default">默认样式</button>
+					<button class="btn btn-mid btn-primary">首选项</button>
+					<button class="btn btn-mid btn-succ">成功</button>
+					<button class="btn btn-mid btn-warn">警告</button>
+					<button class="btn btn-mid btn-err">错误或失败</button>
+					<button class="btn btn-mid btn-info">一般信息</button>
+					<button class="anchor btn-mid">伪链接</button>
+				div.at-mt-small.at-mb-small.
+					<a href="javascript:;" class="btn btn-mid btn-default">伪按钮默认样式</a>
+					<a href="javascript:;" class="btn btn-mid btn-primary">伪按钮首选项</a>
+					<a href="javascript:;" class="btn btn-mid btn-succ">伪按钮成功</a>
+					<a href="javascript:;" class="btn btn-mid btn-warn">伪按钮警告</a>
+					<a href="javascript:;" class="btn btn-mid btn-err">错误或失败</a>
+					<a href="javascript:;" class="btn btn-mid btn-info">伪按钮一般信息</a>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<button class=\"btn btn-mid btn-default\">默认样式<\/button>'}
+						#{'<button class=\"btn btn-mid btn-primary\">主要的<\/button>'}
+						#{'<button class=\"btn btn-mid btn-succ\">成功<\/button>'}
+						#{'<button class=\"btn btn-mid btn-warn\">警告<\/button>'}
+						#{'<button class=\"btn btn-mid btn-err\">错误或失败<\/button>'}
+						#{'<button class=\"btn btn-mid btn-info\">一般信息<\/button>'}
+						#{'<button class=\"anchor btn-mid\">伪链接<\/button>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-default\">伪按钮默认样式<\/a>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-primary\">伪按钮首选项<\/a>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-succ\">伪按钮成功<\/a>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-warn\">伪按钮警告<\/a>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-err\">错误或失败<\/a>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-info\">伪按钮一般信息<\/a>'}
+		h5 按钮激活状态示例
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<button class="btn btn-mid btn-default active">默认按钮（激活）</button>
+					<button class="btn btn-mid btn-primary active">首选项（激活）</button>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<button class="btn btn-mid btn-default active">迷你按钮（激活）</button>'}
+						#{'<button class="btn btn-mid btn-primary active">首选项（激活）</button>'}
+		h5 按钮不可用示例
+			div.doc-example
+				div.at-mt-small.at-mb-small.
+					<button class="btn btn-mid btn-default" disabled="disabled">默认按钮（禁用）</button>
+					<button class="btn btn-mid btn-primary" disabled="disabled">首选项（禁用）</button>
+					<button class="anchor btn-mid" disabled="disabled">伪链接（禁用）</button>
+				div.at-mt-small.at-mb-small.
+					<a href="javascript:;" class="btn btn-mid btn-primary" disabled="disabled">伪按钮首选项（禁用）</a>
+					<button class="btn btn-mid btn-primary disabled">首选项（禁用样式）</button>
+					<a href="javascript:;" class="btn btn-mid btn-primary disabled">伪按钮首选项（禁用样式）</a>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<button class=\"btn btn-mid btn-default\" disabled=\"disabled\">迷你按钮（禁用）<\/button>'}
+						#{'<button class=\"btn btn-mid btn-primary\" disabled=\"disabled\">首选项（禁用）<\/button>'}
+						#{'<button class=\"anchor btn-mid\" disabled=\"disabled\">伪链接（禁用）<\/button>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-primary\" disabled=\"disabled\">伪按钮首选项（禁用）<\/a>'}
+						#{'<button class=\"btn btn-mid btn-primary disabled\">首选项（禁用样式）<\/button>'}
+						#{'<a href=\"javascript:;\" class=\"btn btn-mid btn-primary disabled\">伪按钮首选项（禁用样式）<\/a>'}
+						

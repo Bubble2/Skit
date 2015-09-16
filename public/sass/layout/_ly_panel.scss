@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: layout panel scss
+  description : 各种面板结构
+  ----------------------------------------------------
+  dependencies : settings mixin common 
+  provided to: after pages
+  ----------------------------------------------------
+*/
+.ly-panel{
+	margin-bottom: 20px;
+	border-radius:$smallRadius;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+
+	&>.panel-bd:first-child,&>.panel-hd{
+		margin-top: 0;
+		border-top-left-radius: $smallRadius;
+		border-top-right-radius: $smallRadius;
+		border-width:1px 1px 0;
+	}
+	&>.panel-hd{
+		// height: 36px;
+		padding:0 3px 0 12px;
+		border-style:solid;
+
+		@extend %fn-clr;
+
+
+		h3{
+			float:left;
+			height: 34px;
+			font:600 14px/34px $fontSans;
+
+			.panel-sign{
+				display: inline-block;
+				margin-right: 5px;
+				height:24px;
+				line-height: 24px;
+				vertical-align: middle;
+
+				.fi{
+					font-size: 16px;
+				}
+			}
+			em{
+				vertical-align: middle;
+			}
+		}
+		.panel-after{
+			float:left;
+			height:34px;
+			font:500 12px/34px $fontSerif;
+		}
+		.panel-ope{
+			float:right;
+			margin:5px 0;
+			height: 24px;
+
+			word-spacing: -0.3em;
+			*word-spacing: normal;
+			*letter-spacing: -0.25em;
+
+			.btn{
+				margin: 0 5px;
+				vertical-align: bottom;
+				word-spacing: normal;
+				*letter-spacing: normal;
+			}
+		}
+	}
+	&>.panel-bd{
+		position: relative;
+		padding:15px 10px;
+		overflow: auto;
+		border-width:0 1px 1px;
+		border-style:solid;
+		border-bottom-right-radius: $smallRadius;
+		border-bottom-left-radius: $smallRadius;
+
+	}
+}
+.panel--toggle-off{
+	&>.panel-hd{
+		border-bottom-right-radius: $smallRadius;
+		border-bottom-left-radius: $smallRadius;
+	}
+	&>.panel-bd{
+		display: none;
+	}
+}
+
+// ---------------------------------------------------------------
+// panel style
+
+.panel--default{
+
+	.panel-hd,.panel-bd{
+		border-color: $defaultBorderColor;
+	}
+	.panel-hd{
+
+		@include bg-linear-gradient(
+		  $offset : top,
+		  $bg-linear : ($defaultBgColor,darken($defaultBgColor,6%)),
+		  $ie : 'filter'
+		);
+		background-color: #eee;
+		.panel-sign,h3{
+			color: #666;
+		}
+	}
+	.panel-bd{
+		background-color: #fff;
+	}
+}
+
+.panel--primary{
+
+	.panel-hd,.panel-bd{
+		border-color: $primaryBorderColor;
+	}
+	.panel-hd{
+		background-color: $primaryBgColor;
+		.panel-sign,h3{
+			color: $primaryColor;
+		}
+	}
+	.panel-bd{
+		background-color: $primaryBgColor;
+	}
+}

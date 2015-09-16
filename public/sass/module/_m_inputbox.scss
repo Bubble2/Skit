@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module input box scss
+  description : 输入框模组样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin & ui_form & m_dropdown
+  provided to: any pages
+  ----------------------------------------------------
+*/
+.m-input-group{
+	display: table;
+	position: relative;
+
+	.input-group-addon{
+		display: table-cell;
+		vertical-align: top;
+		background-color: $grayLight;
+		border-style:solid;
+		border-color:#d6d7d8;
+		border-width:1px 0;
+		color:$grayDark;
+		-webkit-text-shadow: 0 1px 0 #fff;
+		text-shadow: 0 1px 0 #fff;
+		// width: 1%;
+		width:auto;
+		text-align: center;
+
+		&>.btn{
+			background-color: transparent;
+			padding:0 15px;
+			border-width:1px;
+		}
+		&>.btn-with-icon{
+			*padding-left:28px;
+		}
+		&>.btn-with-icon-right{
+			padding-right: 28px;
+		}
+	}
+	span.m-input-group-addon{
+		cursor: default;
+	}
+	&>.m-input-group-addon:first-child{
+		border-radius:$smallRadius 0 0 $smallRadius;
+		border-width:1px 0 1px 1px;
+	}
+	&>.m-input-group-addon:last-child{
+		border-radius:0 $smallRadius $smallRadius 0;
+		border-width:1px 1px 1px 0;
+	}
+	&>.m-dropdown{
+		padding:0;
+	}
+	&>.m-dropdown .m-dropdown-toggle{
+		border:none;
+		border-radius:0;
+		padding:0 24px 0 10px;
+		height: 100%;
+		font-size: 1.2rem;
+		font-size: rem2px(1.2rem);
+	}
+	&>.frm-ctrl{
+		display: table-cell;
+		width: 100%;
+		padding:0 5px;
+		border-radius:0;
+	}
+	:first-child,.first-child{
+		border-radius:$smallRadius 0 0 $smallRadius;
+	}
+	:last-child,.last-child{
+		border-radius:0 $smallRadius $smallRadius 0;
+	}
+	&>* :first-child,&>* :last-child{
+		border-radius:0;
+	}
+}
+.m-input-group--height{
+	height: rem2px(3rem);
+	height: 3rem;
+
+	.frm-ctrl{
+		height: rem2px(3rem);
+		height: 3rem;
+	}
+	.m-input-group-addon{
+		line-height: rem2px(2.6rem);
+		line-height: 2.6rem;
+	}
+	&>.btn{
+		height: rem2px(2.8rem);
+		height: 2.8rem;
+	}
+}
+.m-input-group--mid{
+	height:24px;
+
+	.frm-ctrl{
+		height: 29px;
+	}
+	.m-input-group-addon{
+		height: rem2px(2.3rem);
+		height: 2.3rem;
+		line-height: rem2px(2.3rem);
+		line-height: 2.3rem;
+	}
+	&>.btn{
+		height: rem2px(2.2rem);
+		height: 2.2rem;
+	}
+}

@@ -1,0 +1,171 @@
+@charset "utf-8";
+/*
+  -----------------------------------------------------
+  name: typo style
+  description : 排版专用样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  fork from https://github.com/sofish/Typo.css
+  author @sofish
+  skitized by shijinyu
+  ----------------------------------------------------
+  MIT License
+  ----------------------------------------------------
+*/
+
+/* 块/段落引用 */
+blockquote {
+  position: relative;
+  color: #999;
+  font-weight: 400;
+  border-left: 6px solid #1abc9c;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em;
+}
+
+@media #{$small-only} {
+  blockquote {
+    margin: 1em 0;
+  }
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 400;
+}
+
+.code-inline{
+  margin:0 4px;
+  font-size: 13px;
+  background-color: #f8f8f8;
+  background-color: rgba(#f8f8f8,0.65);
+  padding: 2px 4px;
+  color: #c7254e;
+  white-space: nowrap;
+  border-radius: 3px;
+  border:1px solid rgba(#c7254e,0.15);
+}
+
+q:before, q:after {
+  content: '';
+}
+
+
+
+/* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
+ * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
+ * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
+ * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
+ * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
+ */
+u, .typo-u {
+  text-decoration: underline;
+}
+
+/* 标记，类似于手写的荧光笔的作用 */
+mark {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px;
+}
+
+/* 一致化 horizontal rule */
+hr {
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 0.8em;
+  height: 10px;
+}
+
+/* 底部印刷体、版本等标记 */
+small, .typo-small,
+  /* 图片说明 */
+figcaption {
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* 保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
+.typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
+  margin-bottom: 1.2em
+}
+
+.typo-p--indent{
+  text-indent: 2em;
+}
+.typo-p--sag:first-letter{
+  font-size:175%;
+}
+
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
+.typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  line-height: 1.35;
+
+  small{
+    font-size: 75%;
+    font-weight: 500;
+    color:$grayDark;
+  }
+}
+
+/* 与 core/common 的重置有所不同，这里允许另一种排版样式 */
+
+.typo h1, .typo-h1 {
+  font-size: 2em;
+}
+
+.typo h2, .typo-h2 {
+  font-size: 1.8em;
+}
+
+.typo h3, .typo-h3 {
+  font-size: 1.6em;
+}
+
+.typo h4, .typo-h4 {
+  font-size: 1.4em;
+}
+
+.typo h5, .typo h6, .typo-h5, .typo-h6 {
+  font-size: 1.2em;
+}
+
+.typo li ul, .typo-ul ul, .typo-ol ul {
+  list-style: circle;
+}
+
+/* 同 ul/ol，在文章中应用 table 基本格式 */
+.typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #666;
+}
+
+
+/* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
+.typo-em {
+  position: relative;
+}
+
+.typo-em:after {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.6em;
+  text-indent: 0.4em;
+  content: "\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022\2022";
+}
+
+/* Responsive images */
+.typo img {
+  max-width: 100%;
+}

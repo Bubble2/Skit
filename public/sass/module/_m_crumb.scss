@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module bread curmb scss
+  description : 面包屑样式
+  ----------------------------------------------------
+  dependencies : common
+  provided to: after pages
+  ----------------------------------------------------
+*/
+.m-crumb{
+	list-style:none;
+	@extend %fn-clr;
+
+	li{
+		float:left;
+		list-style:none;
+		font-size: rem2px(1.4rem);
+		font-size: 1.4rem;
+		color:#666;
+
+		&:before{
+			margin:0 5px;
+			content:'>';
+			font-family: $fontSun;
+			color:$grayDark;
+		}
+		a:link,a:visited{
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration: underline;
+		}
+	}
+	li:first-child{
+		&:before{
+			content: '\0020';
+			margin:0;
+		}
+	}
+}

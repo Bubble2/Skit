@@ -1,0 +1,102 @@
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+
+.#{$fi-css-prefix}-search:before { content: $fi-var-search; }
+.#{$fi-css-prefix}-envelope-o:before { content: $fi-var-envelope-o; }
+.#{$fi-css-prefix}-heart:before { content: $fi-var-heart; }
+.#{$fi-css-prefix}-star:before { content: $fi-var-star; }
+.#{$fi-css-prefix}-star-o:before { content: $fi-var-star-o; }
+.#{$fi-css-prefix}-user:before { content: $fi-var-user; }
+.#{$fi-css-prefix}-th:before { content: $fi-var-th; }
+.#{$fi-css-prefix}-th-list:before { content: $fi-var-th-list; }
+.#{$fi-css-prefix}-check:before { content: $fi-var-check; }
+.#{$fi-css-prefix}-remove:before,
+.#{$fi-css-prefix}-close:before,
+.#{$fi-css-prefix}-times:before { content: $fi-var-times; }
+.#{$fi-css-prefix}-power-off:before { content: $fi-var-power-off; }
+.#{$fi-css-prefix}-cog:before { content: $fi-var-cog; }
+.#{$fi-css-prefix}-trash-o:before { content: $fi-var-trash-o; }
+.#{$fi-css-prefix}-home:before { content: $fi-var-home; }
+.#{$fi-css-prefix}-clock-o:before { content: $fi-var-clock-o; }
+.#{$fi-css-prefix}-download:before { content: $fi-var-download; }
+.#{$fi-css-prefix}-lock:before { content: $fi-var-lock; }
+.#{$fi-css-prefix}-flag:before { content: $fi-var-flag; }
+.#{$fi-css-prefix}-qrcode:before { content: $fi-var-qrcode; }
+.#{$fi-css-prefix}-tags:before { content: $fi-var-tags; }
+.#{$fi-css-prefix}-book:before { content: $fi-var-book; }
+.#{$fi-css-prefix}-bookmark:before { content: $fi-var-bookmark; }
+.#{$fi-css-prefix}-camera:before { content: $fi-var-camera; }
+.#{$fi-css-prefix}-align-justify:before { content: $fi-var-align-justify; }
+.#{$fi-css-prefix}-photo:before,
+.#{$fi-css-prefix}-image:before,
+.#{$fi-css-prefix}-picture-o:before { content: $fi-var-picture-o; }
+.#{$fi-css-prefix}-pencil:before { content: $fi-var-pencil; }
+.#{$fi-css-prefix}-map-marker:before { content: $fi-var-map-marker; }
+.#{$fi-css-prefix}-plus-circle:before { content: $fi-var-plus-circle; }
+.#{$fi-css-prefix}-minus-circle:before { content: $fi-var-minus-circle; }
+.#{$fi-css-prefix}-times-circle:before { content: $fi-var-times-circle; }
+.#{$fi-css-prefix}-check-circle:before { content: $fi-var-check-circle; }
+.#{$fi-css-prefix}-question-circle:before { content: $fi-var-question-circle; }
+.#{$fi-css-prefix}-info-circle:before { content: $fi-var-info-circle; }
+.#{$fi-css-prefix}-exclamation-circle:before { content: $fi-var-exclamation-circle; }
+.#{$fi-css-prefix}-eye:before { content: $fi-var-eye; }
+.#{$fi-css-prefix}-warning:before,
+.#{$fi-css-prefix}-exclamation-triangle:before { content: $fi-var-exclamation-triangle; }
+.#{$fi-css-prefix}-calendar:before { content: $fi-var-calendar; }
+.#{$fi-css-prefix}-chevron-up:before { content: $fi-var-chevron-up; }
+.#{$fi-css-prefix}-chevron-down:before { content: $fi-var-chevron-down; }
+.#{$fi-css-prefix}-retweet:before { content: $fi-var-retweet; }
+.#{$fi-css-prefix}-shopping-cart:before { content: $fi-var-shopping-cart; }
+.#{$fi-css-prefix}-gears:before,
+.#{$fi-css-prefix}-cogs:before { content: $fi-var-cogs; }
+.#{$fi-css-prefix}-thumbs-o-up:before { content: $fi-var-thumbs-o-up; }
+.#{$fi-css-prefix}-thumbs-o-down:before { content: $fi-var-thumbs-o-down; }
+.#{$fi-css-prefix}-heart-o:before { content: $fi-var-heart-o; }
+.#{$fi-css-prefix}-sign-in:before { content: $fi-var-sign-in; }
+.#{$fi-css-prefix}-phone:before { content: $fi-var-phone; }
+.#{$fi-css-prefix}-unlock:before { content: $fi-var-unlock; }
+.#{$fi-css-prefix}-rss:before { content: $fi-var-rss; }
+.#{$fi-css-prefix}-bell-o:before { content: $fi-var-bell-o; }
+.#{$fi-css-prefix}-wrench:before { content: $fi-var-wrench; }
+.#{$fi-css-prefix}-group:before,
+.#{$fi-css-prefix}-users:before { content: $fi-var-users; }
+.#{$fi-css-prefix}-link:before { content: $fi-var-link; }
+.#{$fi-css-prefix}-table:before { content: $fi-var-table; }
+.#{$fi-css-prefix}-caret-down:before { content: $fi-var-caret-down; }
+.#{$fi-css-prefix}-caret-up:before { content: $fi-var-caret-up; }
+.#{$fi-css-prefix}-envelop:before{ content:$fi-var-envelop; }
+.#{$fi-css-prefix}-sitemap:before{content:$fi-var-sitemap}
+.#{$fi-css-prefix}-umbrella:before { content: $fi-var-umbrella; }
+.#{$fi-css-prefix}-bell:before { content: $fi-var-bell; }
+.#{$fi-css-prefix}-angle-left:before { content: $fi-var-angle-left; }
+.#{$fi-css-prefix}-angle-right:before { content: $fi-var-angle-right; }
+.#{$fi-css-prefix}-angle-up:before { content: $fi-var-angle-up; }
+.#{$fi-css-prefix}-angle-down:before { content: $fi-var-angle-down; }
+.#{$fi-css-prefix}-desktop:before { content: $fi-var-desktop; }
+.#{$fi-css-prefix}-laptop:before { content: $fi-var-laptop; }
+.#{$fi-css-prefix}-tablet:before { content: $fi-var-tablet; }
+.#{$fi-css-prefix}-mobile-phone:before,
+.#{$fi-css-prefix}-mobile:before { content: $fi-var-mobile; }
+.#{$fi-css-prefix}-spinner:before { content: $fi-var-spinner; }
+.#{$fi-css-prefix}-mail-reply-all:before,
+.#{$fi-css-prefix}-reply-all:before { content: $fi-var-reply-all; }
+.#{$fi-css-prefix}-star-half-empty:before,
+.#{$fi-css-prefix}-star-half-full:before,
+.#{$fi-css-prefix}-star-half-o:before { content: $fi-var-star-half-o; }
+.#{$fi-css-prefix}-puzzle-piece:before { content: $fi-var-puzzle-piece; }
+.#{$fi-css-prefix}-unlock-alt:before { content: $fi-var-unlock-alt; }
+.#{$fi-css-prefix}-file:before { content: $fi-var-file; }
+.#{$fi-css-prefix}-file-text:before { content: $fi-var-file-text; }
+.#{$fi-css-prefix}-bug:before { content: $fi-var-bug; }
+.#{$fi-css-prefix}-trash:before { content: $fi-var-trash; }
+.#{$fi-css-prefix}-copyright:before { content: $fi-var-copyright; }
+.#{$fi-css-prefix}-at:before { content: $fi-var-at; }
+.#{$fi-css-prefix}-toggle-off:before { content: $fi-var-toggle-off; }
+.#{$fi-css-prefix}-toggle-on:before { content: $fi-var-toggle-on; }
+.#{$fi-css-prefix}-user-plus:before { content: $fi-var-user-plus; }
+.#{$fi-css-prefix}-user-times:before { content: $fi-var-user-times; }
+.#{$fi-css-prefix}-refresh:before{content:$fi-var-refresh;}
+.#{$fi-css-prefix}-upload:before{content:$fi-var-upload;}
+.#{$fi-css-prefix}-application:before{content:$fi-var-application;}
+.#{$fi-css-prefix}-statistic:before{content:$fi-var-statistic;}
+.#{$fi-css-prefix}-play:before{content:$fi-var-play;}

@@ -1,0 +1,479 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui button scss
+  description : 基础按钮类样式，默认提供四种尺寸的按钮；扩展样式可根据需要引入
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+/* ----------- button base ---------- */
+
+/* inline button */
+.btn{
+  display:inline-block;
+  padding:0;
+  border:none;
+  // vertical-align: middle;
+  _margin-bottom:1px;
+  background-image:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  white-space: nowrap;
+  background-origin: border-box;
+  // -webkit-appearance: button;
+  // -moz-appearance: button;
+  -webkit-transition: border-color 300ms ease-out,background-color 300ms ease-out;
+  -moz-transition: border-color 300ms ease-out,background-color 300ms ease-out;
+  transition: border-color 300ms ease-out,background-color 300ms ease-out;
+}
+input.btn,
+button.btn{
+  *overflow:visible;
+  margin:0;
+  *filter:chroma(color=#000000);
+  cursor: pointer;
+  &:focus{
+    outline: none;
+  }
+}
+a.btn:link,a.btn:visited{
+	text-decoration: none;
+}
+a.btn:hover,
+input.btn-small:hover,
+input.btn-mid:hover,
+input.btn-big:hover{
+  text-decoration:none;
+}
+
+/* block button */
+.btn-block{
+  display: block;
+  width: 100%;
+  background-image:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: center;
+  vertical-align:middle;
+  -webkit-transition: border-color 300ms ease-out,background-color 300ms ease-out;
+  -moz-transition: border-color 300ms ease-out,background-color 300ms ease-out;
+  transition: border-color 300ms ease-out,background-color 300ms ease-out;
+
+  span{
+    display: block;
+    margin:0 2em;
+  }
+}
+button.btn-block,
+input.btn-block{
+  *overflow:visible;
+  margin:0;
+  *filter:chroma(color=#000000);
+  cursor: pointer;
+  &:focus{
+    outline: none;
+  }
+}
+a.btn-block{
+
+  *zoom:1;
+
+  &:link,&:visited,&.hover,&:active{
+    span{
+      text-decoration: none;
+      // cursor: pointer;
+    }
+  }
+}
+.anchor{
+  display: inline-block;
+  vertical-align:middle;
+  cursor: pointer;
+  padding:0;
+  border:none;
+  _margin-bottom:1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-transition: color 300ms ease-out;
+  -moz-transition: color 300ms ease-out;
+  transition: color 300ms ease-out;
+}
+button.anchor,input.anchor{
+  color:$linkColor;
+  background-image:none;
+  background-color: transparent;
+
+  &:hover{
+  	color:darken($linkColor,10%);
+  	text-decoration: underline;
+  }
+  &:focus{
+  	outline:none;
+  }
+}
+.anchor[disabled],.anchor[disabled]:hover,.anchor[disabled]:focus{
+	color:#999;
+}
+
+/* ----------- button size ---------- */
+
+/* mini */
+.btn-mini{
+	font-size: 12px;
+	height: 18px;
+	line-height: 16px;
+	padding:0 8px;
+}
+/* small */
+
+.btn-small{
+  font-size:12px;
+  height:25px;
+  line-height:22px;
+  padding:0 10px;
+}
+
+/* middle size */
+
+.btn-mid{
+  font-size:14px;
+  height:30px;
+  line-height:28px;
+  padding:0 15px;
+}
+
+/* big size */
+
+.btn-big{
+  font-size:14px;
+  height:36px;
+  line-height:36px;
+  padding:0 20px;
+  font-family:$fontHei;
+}
+
+/* ----------- button with icons ---------- */
+
+.btn-with-icon,.btn-with-icon-r{
+  span{
+  	display: inline-block;
+  	line-height: 1.1;
+  	vertical-align: middle;
+  }
+}
+.btn-with-icon{
+	.fi,.icon,.icon-24{
+	    // display: inline;
+	    margin-right:3px;
+	}
+  @if($lte7){
+    *position:relative;
+    *padding-left:28px;
+
+    .icon{
+      *position: absolute;
+      *top:50%;
+      *left:9px;
+      *margin-top:-8px;
+    }
+    .icon-24{
+      *position: absolute;
+      *top:50%;
+      *left:5px;
+      *margin-top:-12px;
+    }
+  }
+}
+.btn-with-icon-right{
+	.btn--sign{
+	    // display: inline;
+	    margin-left:3px;
+	}
+
+    position:relative;
+    padding-right:28px;
+
+    .btn--sign{
+      position: absolute;
+      top:50%;
+      right:9px;
+      height: 16px;
+      line-height: 16px;
+      margin-top:-6px;
+    }
+}
+
+/* ----------- button style ---------- */
+.btn[disabled],.btn-block[disabled],.btn-block.disabled,.btn.disabled{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:#c8c8c8;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (#fafafa,darken(#fafafa,4%)),
+	  $ie : 'filter'
+	);
+	background-color: #fafafa;
+	font-weight:500;
+	color:#999;
+	cursor: not-allowed;
+}
+.btn[disabled]:link,.btn-block[disabled]:link,
+.btn[disabled]:visited,.btn-block[disabled]:visited,
+.btn-block.disabled:link,.btn-block.disabled:visited,
+.btn.disabled:link,.btn.disabled:visited{
+	color:#999;
+}
+.btn[disabled]:hover,.btn-block[disabled]:hover,
+.btn.disabled:hover,.btn-block.disabled:hover{
+	border-color:#c8c8c8;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (#fafafa,darken(#fafafa,4%)),
+	  $ie : 'filter'
+	);
+	border-width: 1px;
+	background-color: #fafafa;
+	color:#999;
+}
+.btn[disabled]:active,.btn-block[disabled]:active,
+.btn[disabled].active,.btn-block[disabled].active,
+.btn.disabled:active,.btn-block.disabled:active{
+	border-color:#c8c8c8;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (#fafafa,darken(#fafafa,4%)),
+	  $ie : 'filter'
+	);
+	background-color: #fafafa;
+}
+
+.btn-default{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:lighten($defaultBorderColor,8%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($defaultBgColor,14%),lighten($defaultBgColor,8%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($defaultBgColor,12%);
+	color:#333;
+	-webkit-text-shadow: 0 1px 0 #fff;
+	text-shadow: 0 1px 0 #fff;
+}
+.btn-default:link,.btn-default:visited{
+	color:#666;
+}
+.btn-default:hover{
+	border-color:$defaultBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($defaultBgColor,12%),lighten($defaultBgColor,8%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($defaultBgColor,8%);
+	color:#333;
+}
+.btn-default:active,
+.btn-default.active{
+	border-color:$defaultBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($defaultBgColor,8%),lighten($defaultBgColor,12%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($defaultBgColor,8%);
+}
+
+.btn-primary{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:$primaryBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($primaryColor,8%),lighten($primaryColor,4%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($primaryColor,6%);
+	color:#fff;
+}
+.btn-primary:link,.btn-primary:visited{
+	color: #fff;
+}
+.btn-primary:hover{
+	border-color:darken($primaryBorderColor,8%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($primaryColor,10%),lighten($primaryColor,6%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($primaryColor,8%);
+}
+.btn-primary:active,
+.btn-primary.active{
+	border-color:darken($primaryBorderColor,8%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($primaryColor,6%),lighten($primaryColor,10%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($primaryColor,8%);
+}
+
+.btn-info{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:$infoBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear :(lighten($infoBorderColor,4%),$infoBorderColor),
+	  $ie : 'filter'
+	);
+	background-color:lighten($infoBorderColor,2%);
+	color:#fff;
+}
+.btn-info:link,.btn-info:visited{
+	color:#fff;
+}
+.btn-info:hover{
+	border-color:darken($infoBorderColor,8%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($infoBorderColor,6%),lighten($infoBorderColor,2%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($infoBorderColor,6%);
+}
+.btn-info:active,
+.btn-info.active{
+	border-color:$infoBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($infoBorderColor,2%),lighten($infoBorderColor,6%)),
+	  $ie : 'filter'
+	);
+	background-color: lighten($infoBorderColor,6%);
+}
+
+.btn-succ{
+	border-radius:$smallRadius;
+	border-width:1px;
+	border-style:solid;
+	border-color:$successBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($successBorderColor,4%),$successBorderColor),
+	  $ie : 'filter'
+	);
+	background-color: lighten($successBorderColor,2%);
+	color:#fff;
+}
+.btn-succ:link,.btn-succ:visited{
+	color:#fff;
+}
+.btn-succ:hover{
+	border-color:darken($successBorderColor,8%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($successBorderColor,6%),lighten($successBorderColor,2%)),
+	  $ie : 'filter'
+	);
+	background-color: darken(nth($successBgColor,1),5%);
+}
+.btn-succ:active,
+.btn-succ.active{
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($successBorderColor,2%),lighten($successBorderColor,6%)),
+	  $ie : 'filter'
+	);
+	border-color:darken($successBorderColor,16%);
+	border-width: 1px;
+	background-color: lighten($successBorderColor,4%);
+}
+
+.btn-warn{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:$warningBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($warningBorderColor,4%),$warningBorderColor),
+	  $ie : 'filter'
+	);
+	background-color: lighten($warningBorderColor,2%);
+	color:#fff;
+}
+.btn-warn:link,.btn-warn:visited{
+	color:#fff;
+}
+.btn-warn:hover{
+	border-color:darken($warningBorderColor,6%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($warningBorderColor,6%),lighten($warningBorderColor,2%)),
+	  $ie : 'filter'
+	);
+	background-color:lighten($warningBorderColor,4%);
+}
+.btn-warn:active,
+.btn-warn.active{
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($warningBorderColor,2%),lighten($warningBorderColor,6%)),
+	  $ie : 'filter'
+	);
+	border-color:darken($warningBorderColor,6%);
+	background-color:lighten($warningBorderColor,4%);
+}
+
+.btn-err{
+	border-radius:$smallRadius;
+	border-width: 1px;
+	border-style:solid;
+	border-color:$errorBorderColor;
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($errorBorderColor,4%),$errorBorderColor),
+	  $ie : 'filter'
+	);
+	background-color: lighten($errorBorderColor,2%);
+	color:#fff;
+}
+.btn-err:link,.btn-err:visited{
+	color:#fff;
+}
+.btn-err:hover{
+	border-color:darken($errorBorderColor,6%);
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($errorBorderColor,6%),lighten($errorBorderColor,2%)),
+	  $ie : 'filter'
+	);
+	background-color:lighten($errorBorderColor,4%);
+}
+.btn-err:active,
+.btn-err.active{
+	@include bg-linear-gradient(
+	  $offset : top,
+	  $bg-linear : (lighten($errorBorderColor,2%),lighten($errorBorderColor,6%)),
+	  $ie : 'filter'
+	);
+	border-color:darken($errorBorderColor,6%);
+	background-color:lighten($errorBorderColor,4%);
+}

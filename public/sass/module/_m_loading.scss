@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module page loading scss
+  description : 页面加载状态样式
+  ----------------------------------------------------
+  dependencies : reset common mixin
+  provided to: after pages
+  ----------------------------------------------------
+*/
+
+.m-loading{
+	display:none;
+	position: fixed;
+	_position:absolute;
+	top:0;
+	left:0;
+	height: 2px;
+	border-radius:1px;
+	font-size: 0;
+	line-height: 0;
+	opacity:0;
+	filter:alpha(opacity=0);
+	z-index:9999;
+	background-color: nth($successColor,1);
+	background-repeat: repeat;
+	background-position: 0 0;
+	-webkit-box-shadow:0 1px 3px rgba(nth($successColor,1),0.1);
+	box-shadow:0 1px 3px rgba(nth($successColor,1),0.1);
+
+	-webkit-transition:width 300ms ease-out,opacity 300ms ease-out,background-color 300ms ease-out;
+	-moz-transition:width 300ms ease-out,opacity 300ms ease-out,background-color 300ms ease-out;
+	transition:width 300ms ease-out,opacity 300ms ease-out,background-color 300ms ease-out;
+
+	span{
+		content: '\0020';
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: #fff;
+		border-radius: 1px;
+		-webkit-animation: animate_loading 2s linear infinite;
+		animation: animate_loading 2s linear infinite;
+	}
+	&:after{
+		position: absolute;
+		border-radius:12px 6px;
+		width: 12px;
+		height: 100%;
+		right:0;
+		content:"\0020";
+		-webkit-box-shadow:5px 0px 2px rgba(nth($successColor,1),0.5);
+		box-shadow:5px 0px 2px rgba(nth($successColor,1),0.5);
+	}
+}
+.m-loading[data-show]{
+	display:block;
+	opacity:.8;
+	filter:alpha(opacity=80);
+}
+.m-loading[style*="width:100%"]{
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+@-webkit-keyframes animate_loading{
+	0% {opacity: 0; width: 0;}
+	50% {opacity: .5;}
+	100% {opacity: 0; width: 95%;}
+}
+@-moz-keyframes animate_loading{
+	0% {opacity: 0; width: 0;}
+	50% {opacity: .5;}
+	100% {opacity: 0; width: 95%;}
+}
+@keyframes animate_loading{
+	0% {opacity: 0; width: 0;}
+	50% {opacity: .5;}
+	100% {opacity: 0; width: 95%;}
+}

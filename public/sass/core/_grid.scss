@@ -1,0 +1,117 @@
+/*
+-----------------------------------------------------
+name: grid scss
+description : all girds
+----------------------------------------------------
+dependencies : settings & reset & grid
+provided to: any pages
+----------------------------------------------------
+*/
+
+
+//----------------------------------------------------
+//  grid style
+//----------------------------------------------------
+
+.grid-g,.grid-w,.grid-sm,.grid-mid,.grid-l{
+  margin: 0 auto;
+  @extend %fn-clr;
+}
+.grid-g{ 
+  width: 100%;
+}
+.grid-w{
+  width:$wrapWidth;
+}
+.grid-sm,.width-sm{
+  width: 480px;
+}
+.grid-mid,.width-mid{
+  width: 640px;
+}
+.grid-l,.width-l{
+  width: 760px;
+}
+
+@if $openResponse {
+  @media #{$small-only}{
+    .grid-w,.grid-sm,.grid-mid,.grid-l{
+      width: $wrapMobileWidth;
+      min-width:480px;
+    }    
+  }
+  @media #{$medium-only}{
+    .grid-w{
+      width: $wrapMobileWidth;
+    }
+    .grid-l{
+      width: 640px;
+    }
+    .grid-mid{
+      width: 480px;
+    }
+    .grid-sm{
+      width: $wrapMobileWidth;
+    }
+  }
+  @media #{$xlarge-up}{
+    .grid-w{
+      width: $wrapWideWidth;
+    }
+  }
+}
+
+
+
+//----------------------------------------------------
+//  grid style
+//----------------------------------------------------
+
+@for $grid-i from 1 through $gridNum{
+  .col-#{$grid-i}{
+    float:left;
+  }
+  .col-right-#{$grid-i}{
+    float:right;
+  }
+  .col-#{$grid-i},.col-right-#{$grid-i}{
+    width:100%/$gridNum*$grid-i;
+  }
+  @if $openResponse{
+    @media #{$small-only}{
+      .col-#{$grid-i}{
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.col-inner{
+  margin-left: rem2px(0.5rem);
+  margin-right: rem2px(0.5rem);
+  margin-left: 0.5rem;
+  margin-right:0.5rem;
+}
+
+.grid-g,.grid-w,.grid-sm,.grid-mid,.grid-l{
+  &>.col:first-child{
+    padding-left:0;
+    padding-right:0;
+  }
+  &>.col+.col{
+    padding-left:rem2px(1rem);
+    padding-right:0;
+  }
+}
+
+@if $openResponse{
+  @media #{$small-only}{
+    .col-inner{
+      padding-left: rem2px(1rem);
+      padding-right: rem2px(1rem);
+      padding-left: 1rem;
+      padding-right:1rem;
+    }
+  }
+}

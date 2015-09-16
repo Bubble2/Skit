@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: ui label scss
+  description : 标签类样式，默认包括 成功（绿色）、错误（红色）、警告（橙色）、未处理（浅蓝）、未启用（浅灰）、不可用（深灰）、标注（青绿）、高亮（淡黄）
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.label {
+	display: inline-block;
+	position: relative;
+	min-width: 10px;
+	padding: 0.25em 0.625em;
+	padding: 0.25rem 0.625rem;
+	font-size: $baseFontSize;
+	font-weight: 500;
+	color: #fff;
+	line-height: 1;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-align: center;
+	background-color: #999;
+}
+.label-ope{
+	padding-right:18px;
+
+	.btn{
+		display: none;
+		position: absolute;
+		right:2px;
+		top:2px;
+		height: 14px;
+		width: 14px;
+		color:#fff;
+	}
+	&:hover .btn{
+		display: block;
+	}
+}
+.label-default{
+	background-color: nth($defaultBgColor,1);
+}
+.label-succ{
+	background-color: nth($successBgColor,1);
+}
+.label-err{
+	background-color: nth($errorBgColor,1);
+}
+.label-warn{
+	background-color: nth($warningBgColor,1);
+}
+.label-info{
+	background-color: nth($infoBgColor,1);
+}
+.label-gray{
+	background-color: nth($grayLight,1);
+}
+.label-disable{
+	color: #666;
+	background-color: #ccc;
+}
+.label-hlight{
+	background-color: #ffc71a;
+}

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/*
+  -----------------------------------------------------
+  name: module popover scss
+  description : 冒泡提示模组样式
+  ----------------------------------------------------
+  dependencies : settings & reset & mixin
+  provided to: any pages
+  ----------------------------------------------------
+*/
+
+.m-popover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	// border-radius: $smallRadius;
+	background-color:nth($infoBgColor,1);
+	border:1px solid darken(nth($infoColor,1),12%);
+	color:nth($infoColor,1);
+	display: none;
+	font-size: 1.6rem;
+	z-index: 1030;
+	opacity: 0;
+	-webkit-transition: opacity 300ms;
+	transition: opacity 300ms;
+
+	.popover-inner {
+		position: relative;
+		padding: 8px;
+		z-index: 110;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		font-size: rem2px(1.2rem);
+		font-size: 1.2rem;
+	}
+	.popover-caret {
+		position: absolute;
+		width: 0;
+		height: 0;
+		vertical-align: middle;
+		overflow: hidden;
+	}
+}
+.m-popover-bottom{
+	
+	.popover-caret {
+		border-width:8px 8px 0 8px;
+		border-style:solid dashed dashed;
+		border-color:darken(nth($infoBgColor,1),12%) transparent transparent;
+	}
+}
+.m-popover-top{
+	
+	.popover-caret {
+		top:-8px;
+		border-width:0 8px 8px 8px;
+		border-style:dashed dashed solid;
+		border-color:transparent transparent darken(nth($infoBgColor,1),12%);
+	}
+}

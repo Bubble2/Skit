@@ -1,0 +1,122 @@
+.inc-main{
+	position: absolute;
+	top:100px;
+	left:200px;
+	right:0;
+	bottom:0;
+	overflow:auto;
+	padding:15px;
+}
+.doc-header{
+	max-width:1190px;
+	min-width:990px;
+	padding-bottom: 9px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #eee;
+
+  h2{
+  	margin:0;
+  	font:500 22px/1.25 $fontSans;
+  	color:#404040;
+  }
+}
+.doc-con{
+	max-width:1190px;
+	min-width:990px;
+	font:14px/1.8 $fontSans;
+	// text-indent:2em;
+
+	ul{
+		margin-left: 1.5em;
+
+		li{
+			list-style-type: disc;
+		}
+	}
+}
+.doc-param{
+	margin-top: 20px;
+
+	&>h3{
+		margin-bottom: 10px;
+		height:18px;
+		padding-left:15px;
+		line-height: 16px;
+		border-left:4px solid $blueDark;
+	}
+}
+.code-inline{
+	margin:0 4px;
+	font-size: 13px;
+  background-color: #f8f8f8;
+  background-color: rgba(#f8f8f8,0.65);
+  padding: 2px 4px;
+  color: #c7254e;
+  white-space: nowrap;
+  border-radius: 3px;
+  border:1px solid rgba(#c7254e,0.15);
+}
+
+
+.doc-example{
+	position: relative;
+	border: 1px solid #eee;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  padding: 30px 15px 15px;
+
+  &:before{
+  	content:"\5B9E\4F8B";
+  	display:block;
+  	position: absolute;
+  	left:5px;
+  	top:5px;
+  	color:#999;
+  	font:600 14px/1.5 $fontSans;
+  }
+}
+.doc-code{
+	position: relative;
+	max-height:500px;
+	overflow:auto;
+	border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+	border: 1px solid #eee;
+
+	.action-clipboard{
+		position: absolute;
+		top:0;
+		right:0;
+		padding:4px;
+		border-left:1px solid #999;
+		border-bottom:1px solid #999;
+		background-color: #ccc;
+		color:#999;
+		cursor: pointer;
+	}
+	pre{
+		margin:0;
+	}
+}
+.doc-example+.doc-code{
+	margin-top: -1px;
+}
+.demo-wrap{
+	margin:20px 0;	
+}
+.demo-box{
+	border:1px solid #e0e0e0;
+	height:40px;
+	line-height: 40px;
+	background-color: #f0f0f0;
+	border-radius:3px;
+	text-align: center;
+	color:#999;
+	-webkit-text-shadow: 1px 1px 0px #fff;
+	text-shadow: 1px 1px 0px #fff;
+}
+.doc-example{
+	.btn{
+		vertical-align: bottom;
+	}
+}
