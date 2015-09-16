@@ -1,0 +1,27 @@
+{
+  "name": "suidoc",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "ejs":"~2.3.3",
+    "markdown-js":"*",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "underscore": "~1.8.3"
+  },
+  "devDependencies":{
+    "gulp":"~3.9.0",
+    "gulp-util":"~3.0.6",
+    "gulp-sourcemaps":"~1.5.2",
+    "gulp-sass":"~2.0.4",
+    "gulp-gdo":"~0.0.1"
+  }
+}
