@@ -2,13 +2,12 @@ var express = require('express');
 var path = require('path');
 var url = require('url');
 var _ = require('underscore');
-var menu = require('../modules/menu.json');
+var navConfig = require('../modules/navConfig');
+var menu = require('../modules/indexConfig'); // JSON.parse();
 
 var router = express.Router();
 
-var doc_lst = menu['/'],
-    module_lst = menu['/module'];
-
+var sideMenu = menu['menu'];
 
 /**
  * 根据请求路由将当前页面对应的侧边栏彩带置为选中状态
@@ -22,7 +21,7 @@ function setCurrentItem(arr,currUrl) {
 	var newArr = _arr.map(function(currVal,i,thisArr){
 		// console.log(currVal.lists);
 		currVal.lists = currVal.lists.map(function(item,j,lists){
-			if(new RegExp(item.router,"g").test(currUrl)){
+			if(item.router.test(currUrl)){
 				item["is-curr"] = true;
 				currName = item.name;
 			}else{
@@ -30,8 +29,6 @@ function setCurrentItem(arr,currUrl) {
 			}
 			return item;
 		});
-		thisArr.currName = currName || "";
-		// console.log("currName: "+thisArr.currName);
 		return currVal;
 	});
 
@@ -55,8 +52,6 @@ function makeRouter(reqUrl,filePath,customRouter){
  	if(customRouter instanceof Function){
  		router.get(reqUrl, function(req, res, next) {
 
- 			var mnu = setCurrentItem(doc_lst,req.path);
-
 	 		customRouter(req, res, next);
 
             next();
@@ -65,9 +60,12 @@ function makeRouter(reqUrl,filePath,customRouter){
  	else{
  		router.get(reqUrl, function(req, res, next) {
 
-		  var mnu = setCurrentItem(doc_lst,req.path);
+		  var mnu = setCurrentItem(sideMenu,req.path);
 		  res.render(filePath, 
 		  	{
+                nav:navConfig,
+                menuIndex:menu.index,
+                crumbs:[mnu[0]],
 		  		title: mnu[0],
 		  		menu: mnu[1]
 		  	});
@@ -78,11 +76,11 @@ function makeRouter(reqUrl,filePath,customRouter){
 }
 
 function regRouter(){
-	_.each(doc_lst,function(arrays, tit, selfObj){
+	_.each(sideMenu,function(arrays, tit, selfObj){
 
 		_.each(arrays.lists,function(mnuItem,i,selfArr){
 
-			var comlineUrl = new RegExp(mnuItem.router,"g");
+			var comlineUrl = mnuItem.router; //new RegExp(,"g");
 
 			// console.log("mnuItem:"+JSON.stringify(mnuItem));
 
@@ -97,7 +95,7 @@ regRouter();
 /* GET home page: index. */
 /*router.get('/', function(req, res, next) {
   //res.end('Hello');
-  var mnu = setCurrentItem(doc_lst,req.path);
+  var mnu = setCurrentItem(sideMenu,req.path);
 
   res.render('doc/introduce', 
   	{
@@ -109,7 +107,7 @@ regRouter();
 /* GET page:  */
 /*router.get('/browser', function(req, res, next) {
 
-	var mnu = setCurrentItem(doc_lst,req.path);
+	var mnu = setCurrentItem(sideMenu,req.path);
 
   res.render('doc/browser', 
   	{
@@ -120,7 +118,7 @@ regRouter();
 
 /*router.get('/update', function(req, res, next) {
 
-	var mnu = setCurrentItem(doc_lst,req.path);
+	var mnu = setCurrentItem(sideMenu,req.path);
 
   res.render('doc/update', 
   	{
@@ -131,7 +129,7 @@ regRouter();
 
 /*router.get('/standard', function(req, res, next) {
   
-  var mnu = setCurrentItem(doc_lst,req.path);
+  var mnu = setCurrentItem(sideMenu,req.path);
   
   res.render('doc/standard', 
   	{
