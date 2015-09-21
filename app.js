@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var indexRoutes = require('./routes/indexRouter');
 var reactRoutes = require('./routes/reactModuleRouter');
+var ficonRouter = require('./routes/ficonRouter');
 // var users = require('./routes/users');
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRoutes);
 app.use('/', reactRoutes);
+app.use('/', ficonRouter);
 // app.use('/users', users);
 
 // catch 404 and forward to error handler

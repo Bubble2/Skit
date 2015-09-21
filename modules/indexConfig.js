@@ -109,7 +109,7 @@ module.exports = {
             "lists": [
                 {
                     "href": "\/ficon",
-                    "router": /\/ficon/,
+                    "router": /^\/ficon$/,
                     "file": "doc/ficon",
                     "name": "字体图标",
                     "is-curr": false,

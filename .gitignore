@@ -7,6 +7,8 @@
 
 css
 node_modules
+koala-config.json
+
 .tmp
 *.tmp
 .gulp-scss-cache

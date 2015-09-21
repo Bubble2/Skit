@@ -18,7 +18,7 @@
 		color: #777;
 		text-align: left;
 	}
-	&>thead>tr>th,thead>tr>td{
+	&>thead>tr>th{
 		background-color: #f9f9f9;
 	}
 	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
@@ -39,17 +39,26 @@
 		text-align:left;
 	}
 }
-.tb-align-left{
-	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+.tb--vertical{
+	&>tbody>tr>th{
+		text-align: right;
+		background-color: #f9f9f9;
+	}
+	&>tbody>tr>td{
 		text-align: left;
 	}
 }
-.tb-align-right{
-	&>thead>tr>th,tbody>tr>th,tbody>tr>td,tfoot>tr>td{
+.tb--align-left{
+	&>thead>tr>th,&>tbody>tr>th,tbody>tr>td,&>tfoot>tr>td{
+		text-align: left;
+	}
+}
+.tb--align-right{
+	&>thead>tr>th,&>tbody>tr>th,tbody>tr>td,&>tfoot>tr>td{
 		text-align: right;
 	}
 }
-.tb-line{
+.tb--line{
 	&>thead>tr>th,&>tbody>tr>th{
 		background-color: transparent;
 	}
@@ -62,7 +71,7 @@
 		border-bottom: 2px solid #ddd;
 	}
 }
-.tb-default{
+.tb--default{
 	&>thead>tr>th,&>thead>tr>td{
 		background-color: #f9f9f9;
 		border-bottom:2px solid #ccc;
@@ -71,7 +80,7 @@
 		background-color: #fefefe;
 	}
 }
-.tb-striped{
+.tb--striped{
 	&>thead>tr>th,&>thead>tr>td{
 		background-color: #f9f9f9;
 		border-bottom:2px solid #ccc;
@@ -80,7 +89,7 @@
 		background-color: #f4fafe;
 	}
 }
-.tb-border{
+.tb--border{
     border:1px solid #999;
 
     &>caption {

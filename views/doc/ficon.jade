@@ -3,6 +3,7 @@ block main
 	div.doc-header
 		h2= title
 	div.doc-con
+		div.font-preview#fontPreview
 		h3 如何修改？
 		p.
 			字体图标是相对独立的模块，位于<code class="nohighlight code-inline">font_icons/</code>，该模块修改自<code class="nohighlight code-inline">fontawesome</code>。默认地，所有的字体图标选择器前缀都是<code class="nohighlight code-inline">fi</code>。
@@ -12,5 +13,50 @@ block main
 			li <code class="nohighlight code-inline">font_icons/suifont</code>是最终被引入的集合。
 			li <code class="nohighlight code-inline">font_icons/animated</code>、<code class="nohighlight code-inline">font_icons/rotated-flipped</code>定义了图标可能需要用到的动画和变形。
 			li <code class="nohighlight code-inline">font_icons/suifont_ie_7</code>是为ie7准备的，降级，因为图标使用了<code class="nohighlight code-inline">::before/::after</code>伪元素，而ie7-不支持它。虽然我们提供了这种方案，但<strong>强烈建议不要使用它</strong>，因为它会对性能造成严重影响。
-		h3 提供了哪些图标？
-		div.font-preview#fontPreview
+		
+
+	script(type="text/template")#tmpFontPreview.
+		<div class="ficon-search">
+			<input type="text" class="ficon-search-bar js-search" placeholder="搜索图标">
+		</div>
+		<table class="tb tb--vertical tb--border font-prev-info">
+			<colgroup>
+				<col width="25%">
+				<col width="25%">
+				<col width="25%">
+				<col width="25%">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>样式前缀</th>
+					<td>{{data["css-prefix"]}}</td>
+					<th>基础字号</th>
+					<td>{{data["font-size-base"]}}</td>
+				</tr>
+				<tr>
+					<th>版本号</th>
+					<td>{{data["version"]}}</td>
+					<th></th>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="font-prev-con grid-g">
+		{{each data.fonts as val index}}
+			<div class="col-6">
+				<div class="font-prev-item" data-value="{{val.name}}">
+					<div class="font-prev-icon">
+						<i class="{{data["css-prefix"]}} {{data["css-prefix"]}}-{{val.name}}"></i>
+						<input type="text" readonly class="font-prev-name js-selected" value="{{val.name}}">
+					</div>
+					<div class="font-prev-value">
+						<span class="at-dis-ib unicode">unicode:{{val.value}}</span>
+						<input type="text" readonly class="frm-ctrl js-selected" value="&amp;#x{{val.value}}">
+					</div>
+				</div>
+			</div>
+		{{/each}}
+		</div>
+
+block append scripts
+	script(type="text/javascript",src="/scripts/pages/ficon.js")
