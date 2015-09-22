@@ -1,7 +1,7 @@
 module.exports = [
     {
         "name":"基本用法",
-        "href":"\/doc",
+        "href":"\/introduce",
         "signClass":"fi-file-text"
     },
     {

@@ -1,4 +1,4 @@
-var commonData = require("../modules/commonModuleConfig.js")("react");
+var commonData = require("../modules/commonModuleConfig")("react");
 
 module.exports = {
     "index":2,

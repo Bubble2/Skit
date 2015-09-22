@@ -3,7 +3,7 @@ var path = require('path');
 var url = require('url');
 var _ = require('underscore');
 var navConfig = require('../modules/navConfig');
-var menu = require('../modules/reactModuleConfig.js');
+var menu = require('../modules/reactModuleConfig');
 
 var router = express.Router();
 
