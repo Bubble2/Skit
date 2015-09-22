@@ -5,8 +5,13 @@ module.exports = [
         "signClass":"fi-file-text"
     },
     {
-        "name":"React组件",
-        "href":"\/module",
+        "name":"组件实现(jQuery)",
+        "href":"\/jq",
+        "signClass":"fi-application"
+    },
+    {
+        "name":"组件实现(React)",
+        "href":"\/react",
         "signClass":"fi-application"
     }
 ];
