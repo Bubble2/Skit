@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var indexRoutes = require('./routes/indexRouter');
-var jqueryRoutes = require('./routes/jqueryModuleRouter');
-var reactRoutes = require('./routes/reactModuleRouter');
+var moduleRoutes = require('./routes/moduleRouter');
 var ficonRouter = require('./routes/ficonRouter');
 // var users = require('./routes/users');
 
@@ -28,8 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRoutes);
-app.use('/', jqueryRoutes);
-app.use('/', reactRoutes);
+app.use('/', moduleRoutes);
 app.use('/', ficonRouter);
 // app.use('/users', users);
 

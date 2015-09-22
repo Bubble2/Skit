@@ -1,5 +1,4 @@
-var ret = [],
-		data = [
+var data = [
     {
         "name":"表单复合组件",
         "lists":[
@@ -94,22 +93,25 @@ module.exports = function(replaced){
 	if(typeof replaced !=="string"){
 		return null;
 	}
+
+    var ret = [];
 	
 	data.forEach(function(currVal,index,currArr){
 		var val = {"name":currVal.name,"lists":[]},
-				lists = [];
+			lists = [];
 		currVal.lists.forEach(function(item,jndex,currLists){
+
 				var _regExp = new RegExp(item.router.replace(/@@@/g,replaced));
 				
 				var _item = {
-            "href":item.href.replace(/@@@/g,replaced),
-            "router":_regExp,
-            "file":item.file.replace(/@@@/g,replaced),
-            "name":item.name,
-            "is-curr":false,
-            "data":{}
-        };
-        lists.push(_item);
+                    "href":item.href.replace(/@@@/g,replaced),
+                    "router":_regExp,
+                    "file":item.file.replace(/@@@/g,replaced),
+                    "name":item.name,
+                    "is-curr":false,
+                    "data":{}
+                };
+                lists.push(_item);
 		});
 		val.lists = lists;
 		ret.push(val);
