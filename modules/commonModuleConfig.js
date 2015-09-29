@@ -3,8 +3,16 @@ var data = [
         "name":"表单复合组件",
         "lists":[
             {
+                "href":"\/",
+                "router":"^\/@@@$",
+                "file":"@@@/index",
+                "name":"组件集简介",
+                "is-curr":false,
+                "data":{}
+            },
+            {
                 "href":"\/@@@\/turn",
-                "router":"(^\/@@@\/turn$)|(^\/@@@$)",
+                "router":"^\/@@@\/turn$",
                 "file":"@@@/turn",
                 "name":"开关、锁定",
                 "is-curr":false,

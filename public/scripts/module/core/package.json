@@ -1,0 +1,8 @@
+{
+  "name": "core",
+  "version": "0.0.1",
+  "update":"000000",
+  "dependencies":{
+    "core": "0.0.1"
+  }
+}

@@ -12,12 +12,28 @@ var express = require('express');
 
 var router = express.Router();
 
-router.get("/js/libs",function(){
+var combineConfig = require('../modules/staticCombineConfig');
 
-});
+/*
+*  combine javascripts requests as one
+*
+*  /mod?mod=turn,upload
+*
+* */
 
-router.get("/js/router",function(){
+router.get("/mod",function(req, res, next){
 
+    if(!("mod" in req.query)){
+        console.log("mod is required!");
+        res.end("");
+        return ;
+    }
+    var mods = req.query.mod.split(",");
+    var codes = combineConfig.getCombine(mods);
+
+    res.type('application/javascript');
+
+    res.send(codes);
 });
 
 module.exports = router;

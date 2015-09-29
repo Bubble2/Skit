@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var indexRoutes = require('./routes/indexRouter');
 var moduleRoutes = require('./routes/moduleRouter');
 var ficonRouter = require('./routes/ficonRouter');
+var staticCombineRouter = require('./routes/staticCombineRouter');
 // var users = require('./routes/users');
 
 var app = express();
@@ -26,9 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', staticCombineRouter);
 app.use('/', indexRoutes);
 app.use('/', moduleRoutes);
 app.use('/', ficonRouter);
+
 // app.use('/users', users);
 
 // catch 404 and forward to error handler
