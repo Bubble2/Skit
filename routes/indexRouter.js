@@ -54,7 +54,7 @@ function makeRouter(reqUrl,filePath,customRouter){
 
             customRouter(req, res, next);
 
-            next();
+            // next();
         });
     }
     else{

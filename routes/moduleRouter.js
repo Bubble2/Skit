@@ -76,7 +76,7 @@ function regRouter(data){
                         menu: mnu[1]
                     });
 
-                next();
+                // next();
             });
 
         });
