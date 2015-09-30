@@ -14,6 +14,8 @@ var router = express.Router();
 
 var combineConfig = require('../modules/staticCombineConfig');
 
+var fs = require("fs");
+
 /*
 *  combine javascripts requests as one
 *
@@ -33,6 +35,12 @@ router.get("/mod",function(req, res, next){
 
     res.type('application/javascript');
 
+    res.send(codes);
+});
+
+router.get("/lib",function(req, res, next){
+    var codes = fs.readFileSync("./dist/lib.js");
+    res.type('application/javascript');
     res.send(codes);
 });
 

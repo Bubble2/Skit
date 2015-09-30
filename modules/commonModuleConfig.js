@@ -3,7 +3,7 @@ var data = [
         "name":"表单复合组件",
         "lists":[
             {
-                "href":"\/",
+                "href":"\/@@@",
                 "router":"^\/@@@$",
                 "file":"@@@/index",
                 "name":"组件集简介",

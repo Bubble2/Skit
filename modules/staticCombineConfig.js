@@ -14,12 +14,12 @@ var path = require("path");
 function combineFiles(files){
     var datas = [];
 
-    console.log("files:"+files);
+    // console.log("files:"+files);
 
     for(var i=0;i<files.length;i++){
         try{
             datas[i] = fs.readFileSync(files[i]).toString();
-            console.log(datas[i]);
+
         }catch(err){
             datas[i] = "";
             console.log("Read File " + files[i] + " Error!");
@@ -30,7 +30,7 @@ function combineFiles(files){
         }
     }
 
-    console.log(datas);
+    // console.log(datas);
 
     return datas.join("\r\n");
 
@@ -104,7 +104,6 @@ function getCombine(mods){
         datas = fs.readFileSync("./dist/" + combineName + ".js");
     }
 
-    console.log(datas,datas.toString());
 
     return datas.toString();
 
@@ -120,8 +119,6 @@ function getCombine(mods){
  *      ③ 若dist下没有相应字段、或dist下相应字段小于模块的配置文件字段，则更新此字段并返回true
  *      ④ 若大于模块的配置文件字段，则更新此字段并返回false
  * */
-
-// TODO : 检查模块是否更新
 
 function checkUpdate(mods,combineName){
     var modCfg = require("../dist/modules.json");
@@ -160,6 +157,14 @@ function checkUpdate(mods,combineName){
     return isUpdated;
 }
 
+/*
+* 合并lib下的全部文件并缓存
+* */
+
+(function(){
+    var data = combineFiles(['./public/scripts/lib/jquery.js','./public/scripts/lib/arttemplate.js']);
+    fs.writeFileSync('./dist/lib.js',data);
+})();
 
 module.exports = {
     getCombine:getCombine,
