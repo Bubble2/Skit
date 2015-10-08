@@ -277,6 +277,51 @@ block main
 						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--err\" placeholder=\"错误 失败\" value=\"错误 失败\">'}
 						#{'<input type=\"text\" class=\"frm-ctrl frm-ctrl--middle frm-ctrl--l frm-ctrl--warn\" placeholder=\"警告 存在问题\" value=\"警告 存在问题\">'}
 		div.doc-param
+			h3 进度条样式
+			p.
+				相关样式定义在<code class="nohighlight code-inline">ui/ui_progress</code>中。
+			div.doc-example.
+				<div class="width-sm at-mt-small at-mb-small">
+					<div class="ui-progress ui-progress--succ">
+						<div class="progress-bar" style="width:50%">
+							<span class="progress-ratio">50%</span>
+						</div>
+					</div>
+				</div>
+				<div class="width-sm at-mt-small at-mb-small">
+					<div class="ui-progress ui-progress--info">
+						<div class="progress-bar progress-bar--striped progress-bar--active" style="width:75%">
+							<span class="progress-ratio">75%</span>
+						</div>
+					</div>
+				</div>
+				<div class="width-sm at-mt-small at-mb-small">
+					<div class="ui-progress disabled">
+						<div class="progress-bar" style="width:30%">
+							<span class="progress-ratio">30%</span>
+						</div>
+					</div>
+				</div>
+			div.doc-code
+				pre
+					code(data-lang="html").language-html.
+						#{'<div class="ui-progress ui-progress--succ">'}
+							#{'<div class="progress-bar" style="width:50%">'}
+								#{'<span class="progress-ratio">50%</span>'}
+							#{'</div>'}
+						#{'</div>'}
+						#{'<div class="ui-progress ui-progress--info">'}
+							#{'<div class="progress-bar progress-bar--striped progress-bar--active" style="width:50%">'}
+								#{'<span class="progress-ratio">50%</span>'}
+							#{'</div>'}
+						#{'</div>'}
+						#{'<div class="ui-progress disabled">'}
+							#{'<div class="progress-bar" style="width:50%">'}
+								#{'<span class="progress-ratio">50%</span>'}
+							#{'</div>'}
+						#{'</div>'}
+
+		div.doc-param
 			h3 表单复杂布局
 			p.
 				SKit考虑到了一些复杂布局的情况。

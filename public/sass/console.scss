@@ -23,3 +23,73 @@ html{
 @import "include/inc_top";
 @import "include/inc_main";
 @import "include/inc_side";
+
+
+.font-preview{
+	margin:10px 30px;
+}
+.font-prev-info{
+	font-size:18px;
+}
+.ficon-search{
+	margin:10px 0 20px 0;
+
+	.ficon-search-bar{
+		display:block;
+		width:100%;
+		padding:6px 15px;
+		border-width:0 0 3px 0;
+		border-style:none none solid none;
+		border-color:transparent transparent rgb(210, 105, 30);
+		font-size: 28px;
+		color:#666;
+		text-align: center;
+	}
+}
+.font-prev-con .col-6:nth-child(2n+1) .font-prev-item{
+	margin-right: 10px;
+}
+.font-prev-con .col-6:nth-child(2n) .font-prev-item{
+	margin-left: 10px;
+}
+.font-prev-item{
+	margin-top:30px;
+	border-top:5px solid #ccc;
+	border-bottom:5px solid #ccc;
+	font-size:30px;
+	
+	.font-prev-name{
+		border:none;
+	}
+	.frm-ctrl,.font-prev-name{
+		margin-left: 20px;
+		padding:0 14px;
+		width:240px;
+		font-size: 36px;
+		height:48px;
+		line-height: 48px;
+	}
+	.font-prev-icon{
+		padding:15px 20px;
+		border-bottom:3px dotted #eee;
+		
+		.fi{
+			font-size: 36px;
+			vertical-align: middle;
+		}
+		.font-prev-name{
+			display: inline-block;
+			margin-left: 0px;
+			line-height: 1;
+			vertical-align: middle;
+		}
+	}
+	.font-prev-value{
+		padding:8px 5px;
+
+		.unicode{
+			vertical-align: middle;
+			color:#666;
+		}
+	}
+}

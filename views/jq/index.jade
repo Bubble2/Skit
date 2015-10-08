@@ -1,0 +1,25 @@
+extends ../index
+block main
+		div.doc-header
+			h2= title
+		div.doc-con
+			p.
+				组件是<code class="nohighlight code-inline">SKit</code>里的重要组成。
+				<code class="nohighlight code-inline">SKit</code>这样定义组件：
+			ol.at-mt-small.at-mb-small
+				li HTML结构上：对外是一个整体，只内部结构是固定不变的。
+				li 实现单一、完整的功能，提供统一的js接口供调用。
+				li 除非面对复杂的情况，一般建议不要让组件之间存在依赖关系。
+				li 从代码部署上说：组件的html、css(sass)、js分别分开存放，但它们是一个“整体”。
+				li 如有必要，需要在<code class="nohighlight code-inline">scripts/module/{moudle}</code>下存放<code class="nohighlight code-inline">package.json</code>来定义组件的简介和说明。
+			blockquote.at-mt-mid.
+				在使用js实现功能之前，组件只是一层带有样式的结构，仅此而已。
+			h3 组件js编写规范
+			p 待补充
+			h3 组件的jQuery实现
+			p.
+				首先，这是作者对功能最简单的实现，在实际项目中，您可能需要重构它们。
+			p.
+				依赖的jQuery版本：<code class="nohighlight code-inline">jQuery 2.1.4</code>。
+			p.
+				依赖的模板引擎：<code class="nohighlight code-inline">arttemplate</code>，您可以<a href="https://github.com/aui/artTemplate" target="_blank">在GitHub上查看它。</a>
