@@ -1,8 +1,1 @@
-{
-  "name": "turn",
-  "version": "0.0.1",
-  "update":"000000",
-  "dependencies":{
-    "core": "0.0.1"
-  }
-}
+{"name":"turn","version":"0.0.1","update":"1444292741775","dependencies":{"core":"0.0.1"}}

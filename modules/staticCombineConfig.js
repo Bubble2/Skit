@@ -18,7 +18,7 @@ function combineFiles(files){
 
     for(var i=0;i<files.length;i++){
         try{
-            datas[i] = fs.readFileSync(files[i]).toString();
+            datas[i] = fs.readFileSync(files[i],"utf8").toString();
 
         }catch(err){
             datas[i] = "";
@@ -101,7 +101,7 @@ function getCombine(mods){
 
     }else{ // 如果不存在更新，直接读文件
 
-        datas = fs.readFileSync("./dist/" + combineName + ".js");
+        datas = fs.readFileSync("./dist/" + combineName + ".js","utf8");
     }
 
 
@@ -134,7 +134,7 @@ function checkUpdate(mods,combineName){
     cfgs.forEach(function(cfg,index,arr){
         var cfgObj;
         try{
-            cfgObj = JSON.parse(fs.readFileSync(cfg));
+            cfgObj = JSON.parse(fs.readFileSync(cfg,"utf8"));
             if(mods[index] in modCfg){
                 isUpdated = parseInt(cfgObj.update) >= parseInt(modCfg[mods[index]]) || isUpdated;
             }else{

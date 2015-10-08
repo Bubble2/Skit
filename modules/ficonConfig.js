@@ -25,9 +25,9 @@ function makeJson(){
 		"fonts":[]
 	};
 
-	fiData.replace(/\/\*(\s|.)*\*\//g,"\r").split('\r').forEach(function(currVal,index,currArr){
+	fiData.replace(/\/\*(\s|.)*\*\//g,"\r").split(/\r?\n/ig).forEach(function(currVal,index,currArr){
 		// 丢弃注释
-		if(/\/\/(.|\s)*/.test(currVal) || /^[\s\n\r]+$/.test(currVal)){
+		if(/\/\/(.|\s)*/.test(currVal) || /^[\s\n\r]+$/.test(currVal) || currVal == ""){
 			console.log("! ignore:" + currVal);
 			return ;
 		}

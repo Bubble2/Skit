@@ -1,8 +1,1 @@
-{
-  "name": "validate",
-  "version": "0.0.1",
-  "update":"000000",
-  "dependencies":{
-    "core": "0.0.1"
-  }
-}
+{"name":"validate","version":"0.0.1","update":"1444292741791","dependencies":{"core":"0.0.1"}}

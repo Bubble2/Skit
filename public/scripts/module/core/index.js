@@ -45,5 +45,6 @@
 		"tel":/^\d[\d\-]{6-17}$/g
 	}
 
-  console.log("core is loaded!");
+   console.log("core is loaded!");
+
 })(window);
