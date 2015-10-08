@@ -7,7 +7,7 @@
 
 css
 node_modules
-dist
+dist/*.js
 koala-config.json
 
 .tmp
