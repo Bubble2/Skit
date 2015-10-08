@@ -32,7 +32,7 @@ function combineFiles(files){
 
     // console.log(datas);
 
-    return datas.join("\r\n");
+    return datas.join("\n");
 
 }
 
@@ -137,6 +137,9 @@ function checkUpdate(mods,combineName){
             cfgObj = JSON.parse(fs.readFileSync(cfg,"utf8"));
             if(mods[index] in modCfg){
                 isUpdated = parseInt(cfgObj.update) >= parseInt(modCfg[mods[index]]) || isUpdated;
+                if(isUpdated){
+                    modCfg[mods[index]] = cfgObj.update;
+                }
             }else{
                 isUpdated = true;
                 modCfg[mods[index]] = cfgObj.update;
