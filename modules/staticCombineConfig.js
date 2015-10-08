@@ -59,7 +59,7 @@ function getCombineName(files){
  * */
 function getLocate(mods,fileName){
     fileName = fileName || "";
-    var filePath = path.join("./public/scripts/module/",mods, fileName);
+    var filePath = path.join("./public/scripts/",mods, fileName);
     return filePath;
 }
 
