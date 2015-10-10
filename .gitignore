@@ -8,10 +8,10 @@ node_modules
 *.sublime-project
 *.sublime-workspace
 
-*.css
+
 *.map
 modules/*.js
-css
+css/*.css
 node_modules
 dist/*.js
 koala-config.json
